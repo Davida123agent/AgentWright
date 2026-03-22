@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentWright — We Build the AI Agents That Run Your Business</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;
+  --bg-card:#111118;
+  --bg-card-hover:#16161f;
+  --text:#e8e8ef;
+  --text-dim:#8888a0;
+  --accent:#00e5a0;
+  --accent-dim:#00e5a033;
+  --accent-glow:#00e5a066;
+  --accent2:#7c5cfc;
+  --accent2-dim:#7c5cfc33;
+  --border:#1e1e2e;
+  --border-bright:#2a2a3e;
+  --font-display:'Sora',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-display);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:var(--accent);text-decoration:none;transition:all .2s}
+a:hover{color:#fff}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(255,255,255,.008) 1px,rgba(255,255,255,.008) 2px),
+  repeating-linear-gradient(90deg,transparent,transparent 1px,rgba(255,255,255,.008) 1px,rgba(255,255,255,.008) 2px);
+  background-size:40px 40px;
+}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(10,10,15,.8);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--font-mono);font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:var(--text-dim);font-size:.85rem;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+.nav-links a:hover{color:var(--accent)}
+.btn-nav{background:var(--accent);color:var(--bg)!important;padding:.55rem 1.4rem;border-radius:6px;font-weight:600;font-size:.82rem;letter-spacing:.02em;text-transform:uppercase;transition:all .25s}
+.btn-nav:hover{background:#fff;transform:translateY(-1px);box-shadow:0 4px 20px var(--accent-glow)}
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:6rem;position:relative}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,var(--accent-dim) 0%,transparent 70%);filter:blur(80px);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:10%;left:-15%;width:400px;height:400px;background:radial-gradient(circle,var(--accent2-dim) 0%,transparent 70%);filter:blur(80px);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border-bright);background:var(--bg-card);padding:.4rem 1rem;border-radius:100px;font-size:.75rem;font-family:var(--font-mono);color:var(--text-dim);margin-bottom:2rem;animation:fadeUp .8s ease both}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+h1{font-size:clamp(2.8rem,6vw,4.2rem);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin-bottom:1.5rem;animation:fadeUp .8s ease .1s both}
+h1 .accent{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:1.15rem;color:var(--text-dim);line-height:1.7;max-width:600px;margin-bottom:2.5rem;animation:fadeUp .8s ease .2s both}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .8s ease .3s both}
+.btn-primary{background:var(--accent);color:var(--bg);padding:.9rem 2rem;border-radius:8px;font-weight:600;font-size:.9rem;letter-spacing:.01em;display:inline-block;transition:all .25s;border:none;cursor:pointer;font-family:var(--font-display)}
+.btn-primary:hover{background:#fff;color:var(--bg);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-secondary{border:1px solid var(--border-bright);color:var(--text);padding:.9rem 2rem;border-radius:8px;font-weight:500;font-size:.9rem;transition:all .25s;display:inline-block;background:transparent}
+.btn-secondary:hover{border-color:var(--accent);background:var(--accent-dim)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.proof-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 0}
+.proof-inner{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;align-items:center}
+.proof-item{font-family:var(--font-mono);font-size:.78rem;color:var(--text-dim);letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem}
+.proof-item strong{color:var(--accent);font-size:1.1rem}
+section{padding:6rem 0}
+.section-label{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.section-label::before{content:'//';color:var(--text-dim)}
+h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:1rem}
+.section-desc{color:var(--text-dim);font-size:1.05rem;max-width:550px;margin-bottom:3rem;line-height:1.7}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.service-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2.2rem;transition:all .35s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .35s}
+.service-card:hover{border-color:var(--border-bright);background:var(--bg-card-hover);transform:translateY(-4px)}
+.service-card:hover::before{opacity:1}
+.service-num{font-family:var(--font-mono);font-size:.7rem;color:var(--accent);margin-bottom:1rem;letter-spacing:.1em}
+.service-card h3{font-size:1.25rem;font-weight:600;margin-bottom:.75rem;letter-spacing:-.01em}
+.service-card p{color:var(--text-dim);font-size:.9rem;line-height:1.7;margin-bottom:1.2rem}
+.service-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.service-tag{font-family:var(--font-mono);font-size:.68rem;color:var(--text-dim);border:1px solid var(--border);padding:.25rem .65rem;border-radius:4px;letter-spacing:.03em}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem}
+.step{position:relative}
+.step-number{font-family:var(--font-mono);font-size:3rem;font-weight:700;background:linear-gradient(180deg,var(--accent) 0%,transparent 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:1rem}
+.step h3{font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.step p{color:var(--text-dim);font-size:.85rem;line-height:1.7}
+.step-free{display:inline-block;font-family:var(--font-mono);font-size:.65rem;color:var(--accent);border:1px solid var(--accent);padding:.15rem .5rem;border-radius:4px;margin-bottom:.5rem;letter-spacing:.05em}
+.founder-section{max-width:700px}
+.founder-quote{border-left:2px solid var(--accent);padding-left:2rem;font-size:1.2rem;font-weight:300;line-height:1.7;font-style:italic;color:var(--text);margin-bottom:1.5rem}
+.founder-name{font-weight:600;font-size:1rem;margin-bottom:.25rem}
+.founder-title{color:var(--text-dim);font-size:.85rem;margin-bottom:1.5rem}
+.founder-bio{color:var(--text-dim);font-size:.92rem;line-height:1.8}
+.cta-section{text-align:center;padding:6rem 0 8rem}
+.cta-section h2{margin-bottom:1rem}
+.cta-section .section-desc{margin:0 auto 2.5rem}
+.cta-box{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:3.5rem;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-dim),transparent 50%,var(--accent2-dim));opacity:.3}
+.cta-box>*{position:relative;z-index:1}
+.cta-form{display:flex;gap:.75rem;max-width:500px;margin:0 auto}
+.cta-input{flex:1;padding:.85rem 1.2rem;background:var(--bg);border:1px solid var(--border-bright);border-radius:8px;color:var(--text);font-family:var(--font-display);font-size:.9rem;outline:none;transition:border-color .2s}
+.cta-input:focus{border-color:var(--accent)}
+.cta-input::placeholder{color:var(--text-dim)}
+footer{border-top:1px solid var(--border);padding:2.5rem 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{color:var(--text-dim);font-size:.82rem}
+.footer-copy{color:var(--text-dim);font-size:.78rem;font-family:var(--font-mono)}
+@media(max-width:768px){.services-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:1fr 1fr}.nav-links a:not(.btn-nav){display:none}.proof-inner{gap:1.5rem}.cta-form{flex-direction:column}}
+@media(max-width:480px){.process-steps{grid-template-columns:1fr}}
+.reveal{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">agent<span>wright</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#founder">About</a>
+      <a href="#cta" class="btn-nav">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Now accepting clients</div>
+      <h1>Your business runs on workflows.<br>We make them <span class="accent">run on AI.</span></h1>
+      <p class="hero-sub">We design, build, and deploy AI agent systems that automate your most time-consuming operations. Not slide decks. Not demos. Production systems, live in your stack.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn-primary">Book a Free Discovery Call</a>
+        <a href="#services" class="btn-secondary">See What We Build</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="proof-bar">
+  <div class="proof-inner">
+    <div class="proof-item"><strong>12+ hrs</strong> saved per client per week</div>
+    <div class="proof-item"><strong>1-3 weeks</strong> from kickoff to deployed</div>
+    <div class="proof-item"><strong>Built by</strong> a founder who runs on the same systems</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="section-label">What we do</div>
+    <h2 class="reveal">Four ways we turn AI<br>into operational advantage.</h2>
+    <p class="section-desc reveal">Every engagement starts with understanding your business. Then we build, deploy, and hand you the keys.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <h3>AI Workflow Audits & Strategy</h3>
+        <p>We map your operations end to end, score every workflow for automation potential, and deliver a prioritized roadmap showing exactly where AI agents will save the most time and money. You get a plan you can act on this quarter.</p>
+        <div class="service-tags">
+          <span class="service-tag">Process mapping</span>
+          <span class="service-tag">ROI scoring</span>
+          <span class="service-tag">Agent architecture</span>
+          <span class="service-tag">90-day roadmap</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <h3>Agent System Buildouts</h3>
+        <p>We design and deploy production agent systems tailored to your workflows: automated outreach, document generation, research pipelines, CRM automation, multi-agent architectures. Built on the same tools we use to run our own companies.</p>
+        <div class="service-tags">
+          <span class="service-tag">Claude agents</span>
+          <span class="service-tag">MCP integrations</span>
+          <span class="service-tag">Custom pipelines</span>
+          <span class="service-tag">Multi-agent systems</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <h3>Prompt Engineering & Optimization</h3>
+        <p>The quality of your AI output depends entirely on how you instruct it. We engineer the system prompts, decision logic, and guardrails that turn a general-purpose model into a specialist for your specific business needs.</p>
+        <div class="service-tags">
+          <span class="service-tag">System prompts</span>
+          <span class="service-tag">Decision logic</span>
+          <span class="service-tag">A/B testing</span>
+          <span class="service-tag">Guardrails</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <h3>Team Training & Enablement</h3>
+        <p>We don't just hand over a system and walk away. Your team gets hands-on training, a custom operations playbook, and ongoing support until they can run, troubleshoot, and improve the agents on their own.</p>
+        <div class="service-tags">
+          <span class="service-tag">Live workshops</span>
+          <span class="service-tag">Custom playbooks</span>
+          <span class="service-tag">1-on-1 coaching</span>
+          <span class="service-tag">30-day support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2 class="reveal">From first call to<br>running system in weeks.</h2>
+    <div class="process-steps">
+      <div class="step reveal">
+        <div class="step-number">01</div>
+        <div class="step-free">Free</div>
+        <h3>Discovery Call</h3>
+        <p>A 30-minute conversation to understand your workflows, challenges, and goals. We identify your highest-impact opportunities and tell you honestly if we can help.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">02</div>
+        <h3>AI Audit</h3>
+        <p>A deep-dive into your operations. We map your workflows, score them for AI readiness, and deliver a prioritized action plan with agent architecture recommendations.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">03</div>
+        <h3>Build & Deploy</h3>
+        <p>We build your agent systems, write the prompts, connect the integrations, test everything, and deploy it live in your stack. Typical timeline: 1 to 3 weeks.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">04</div>
+        <h3>Train & Optimize</h3>
+        <p>Your team gets trained, your playbook gets delivered, and we stay on for 30 days to optimize performance. You walk away self-sufficient.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="founder" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-label">Who we are</div>
+    <div class="founder-section reveal">
+      <h2>Built by a founder,<br>for founders.</h2>
+      <p class="founder-quote">"I don't just advise on AI. I build agent systems for my own companies every day. The pipelines that handle investor outreach, the research workflows that power product development, the automations that run daily operations, they're all agent-driven. I build the same for you."</p>
+      <div class="founder-name">David Amsel</div>
+      <div class="founder-title">Serial entrepreneur. Built and exited businesses in regulated industries. Completed multi-year federal contracts including custom software. Now building full-time with AI agents.</div>
+      <p class="founder-bio">AgentWright exists because most AI consulting is disconnected from reality. Consultants who have never shipped a production agent system are charging businesses for strategy decks that collect dust. We took a different approach: build the systems first, prove they work by running our own operations on them, then offer the same to others. Every system we deploy for a client is built on patterns we have already battle-tested ourselves.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cta" class="cta-section">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="section-label" style="justify-content:center">Get started</div>
+      <h2>Find out where AI agents<br>will hit hardest in your business.</h2>
+      <p class="section-desc" style="text-align:center">Book a free 30-minute discovery call. No pitch, no commitment. We will walk through your workflows and tell you exactly where automation would deliver the biggest return.</p>
+      <div class="cta-form">
+        <input class="cta-input" type="email" placeholder="your@email.com">
+        <button class="btn-primary" onclick="alert('Thank you! We will be in touch within 24 hours to schedule your call.')">Book Free Discovery Call</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="logo">agent<span>wright</span></div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#founder">About</a>
+        <a href="mailto:hello@agentwright.ai">Contact</a>
+        <a href="https://linkedin.com/company/agentwright" target="_blank">LinkedIn</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 AgentWright. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
