@@ -1,298 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgentWright — We Build the AI Agents That Run Your Business</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#0a0a0f;
-  --bg-card:#111118;
-  --bg-card-hover:#16161f;
-  --text:#e8e8ef;
-  --text-dim:#8888a0;
-  --accent:#00e5a0;
-  --accent-dim:#00e5a033;
-  --accent-glow:#00e5a066;
-  --accent2:#7c5cfc;
-  --accent2-dim:#7c5cfc33;
-  --border:#1e1e2e;
-  --border-bright:#2a2a3e;
-  --font-display:'Sora',sans-serif;
-  --font-mono:'JetBrains Mono',monospace;
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font-display);
-  line-height:1.6;
-  overflow-x:hidden;
-}
-a{color:var(--accent);text-decoration:none;transition:all .2s}
-a:hover{color:#fff}
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(255,255,255,.008) 1px,rgba(255,255,255,.008) 2px),
-  repeating-linear-gradient(90deg,transparent,transparent 1px,rgba(255,255,255,.008) 1px,rgba(255,255,255,.008) 2px);
-  background-size:40px 40px;
-}
-.container{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(10,10,15,.8);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:var(--font-mono);font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
-.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{color:var(--text-dim);font-size:.85rem;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
-.nav-links a:hover{color:var(--accent)}
-.btn-nav{background:var(--accent);color:var(--bg)!important;padding:.55rem 1.4rem;border-radius:6px;font-weight:600;font-size:.82rem;letter-spacing:.02em;text-transform:uppercase;transition:all .25s}
-.btn-nav:hover{background:#fff;transform:translateY(-1px);box-shadow:0 4px 20px var(--accent-glow)}
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:6rem;position:relative}
-.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,var(--accent-dim) 0%,transparent 70%);filter:blur(80px);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:10%;left:-15%;width:400px;height:400px;background:radial-gradient(circle,var(--accent2-dim) 0%,transparent 70%);filter:blur(80px);pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:800px}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border-bright);background:var(--bg-card);padding:.4rem 1rem;border-radius:100px;font-size:.75rem;font-family:var(--font-mono);color:var(--text-dim);margin-bottom:2rem;animation:fadeUp .8s ease both}
-.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-h1{font-size:clamp(2.8rem,6vw,4.2rem);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin-bottom:1.5rem;animation:fadeUp .8s ease .1s both}
-h1 .accent{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:1.15rem;color:var(--text-dim);line-height:1.7;max-width:600px;margin-bottom:2.5rem;animation:fadeUp .8s ease .2s both}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .8s ease .3s both}
-.btn-primary{background:var(--accent);color:var(--bg);padding:.9rem 2rem;border-radius:8px;font-weight:600;font-size:.9rem;letter-spacing:.01em;display:inline-block;transition:all .25s;border:none;cursor:pointer;font-family:var(--font-display)}
-.btn-primary:hover{background:#fff;color:var(--bg);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
-.btn-secondary{border:1px solid var(--border-bright);color:var(--text);padding:.9rem 2rem;border-radius:8px;font-weight:500;font-size:.9rem;transition:all .25s;display:inline-block;background:transparent}
-.btn-secondary:hover{border-color:var(--accent);background:var(--accent-dim)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.proof-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 0}
-.proof-inner{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;align-items:center}
-.proof-item{font-family:var(--font-mono);font-size:.78rem;color:var(--text-dim);letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem}
-.proof-item strong{color:var(--accent);font-size:1.1rem}
-section{padding:6rem 0}
-.section-label{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
-.section-label::before{content:'//';color:var(--text-dim)}
-h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:1rem}
-.section-desc{color:var(--text-dim);font-size:1.05rem;max-width:550px;margin-bottom:3rem;line-height:1.7}
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.service-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2.2rem;transition:all .35s;position:relative;overflow:hidden}
-.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .35s}
-.service-card:hover{border-color:var(--border-bright);background:var(--bg-card-hover);transform:translateY(-4px)}
-.service-card:hover::before{opacity:1}
-.service-num{font-family:var(--font-mono);font-size:.7rem;color:var(--accent);margin-bottom:1rem;letter-spacing:.1em}
-.service-card h3{font-size:1.25rem;font-weight:600;margin-bottom:.75rem;letter-spacing:-.01em}
-.service-card p{color:var(--text-dim);font-size:.9rem;line-height:1.7;margin-bottom:1.2rem}
-.service-tags{display:flex;flex-wrap:wrap;gap:.4rem}
-.service-tag{font-family:var(--font-mono);font-size:.68rem;color:var(--text-dim);border:1px solid var(--border);padding:.25rem .65rem;border-radius:4px;letter-spacing:.03em}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem}
-.step{position:relative}
-.step-number{font-family:var(--font-mono);font-size:3rem;font-weight:700;background:linear-gradient(180deg,var(--accent) 0%,transparent 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:1rem}
-.step h3{font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
-.step p{color:var(--text-dim);font-size:.85rem;line-height:1.7}
-.step-free{display:inline-block;font-family:var(--font-mono);font-size:.65rem;color:var(--accent);border:1px solid var(--accent);padding:.15rem .5rem;border-radius:4px;margin-bottom:.5rem;letter-spacing:.05em}
-.founder-section{max-width:700px}
-.founder-quote{border-left:2px solid var(--accent);padding-left:2rem;font-size:1.2rem;font-weight:300;line-height:1.7;font-style:italic;color:var(--text);margin-bottom:1.5rem}
-.founder-name{font-weight:600;font-size:1rem;margin-bottom:.25rem}
-.founder-title{color:var(--text-dim);font-size:.85rem;margin-bottom:1.5rem}
-.founder-bio{color:var(--text-dim);font-size:.92rem;line-height:1.8}
-.cta-section{text-align:center;padding:6rem 0 8rem}
-.cta-section h2{margin-bottom:1rem}
-.cta-section .section-desc{margin:0 auto 2.5rem}
-.cta-box{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:3.5rem;position:relative;overflow:hidden}
-.cta-box::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-dim),transparent 50%,var(--accent2-dim));opacity:.3}
-.cta-box>*{position:relative;z-index:1}
-.cta-form{display:flex;gap:.75rem;max-width:500px;margin:0 auto}
-.cta-input{flex:1;padding:.85rem 1.2rem;background:var(--bg);border:1px solid var(--border-bright);border-radius:8px;color:var(--text);font-family:var(--font-display);font-size:.9rem;outline:none;transition:border-color .2s}
-.cta-input:focus{border-color:var(--accent)}
-.cta-input::placeholder{color:var(--text-dim)}
-footer{border-top:1px solid var(--border);padding:2.5rem 0}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.footer-links{display:flex;gap:2rem}
-.footer-links a{color:var(--text-dim);font-size:.82rem}
-.footer-copy{color:var(--text-dim);font-size:.78rem;font-family:var(--font-mono)}
-@media(max-width:768px){.services-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:1fr 1fr}.nav-links a:not(.btn-nav){display:none}.proof-inner{gap:1.5rem}.cta-form{flex-direction:column}}
-@media(max-width:480px){.process-steps{grid-template-columns:1fr}}
-.reveal{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.22,1,.36,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AgentWright | Keep your quotes moving</title>
+  <meta name="description" content="A practical quote-follow-up system for sheet-metal fabricators and commercial sign shops. Keep your quoting tools. Start with a scoped, 30-day pilot.">
+  <meta name="theme-color" content="#0b202a">
+  <meta property="og:title" content="AgentWright | Keep your quotes moving">
+  <meta property="og:description" content="A clear next step for every open quote. Quote follow-up for fabricators and commercial sign shops.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230b202a%22%2F%3E%3Ctext%20x%3D%227%22%20y%3D%2242%22%20fill%3D%22%23d7f478%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2235%22%20font-weight%3D%22bold%22%20letter-spacing%3D%22-3%22%3Eaw%3C%2Ftext%3E%3C%2Fsvg%3E" type="image/svg+xml">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--navy:#0b202a;--ink:#152f3a;--teal:#17675e;--lime:#d7f478;--muted:#62737a;--paper:#f5f8f9;--line:#dce4e7;--white:#fff;--font:'DM Sans',Arial,sans-serif;--display:'Manrope',Arial,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;color:var(--ink);background:white;font-family:var(--font);font-size:16px;line-height:1.65}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:disabled{opacity:.55;cursor:default}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #338cdb;outline-offset:5px}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--display);line-height:1.13;letter-spacing:-.04em}h1{font-size:clamp(2.8rem,5.15vw,4.75rem);font-weight:700}h2{font-size:clamp(2.1rem,3.3vw,3.1rem);font-weight:700}h3{font-size:1.38rem;letter-spacing:-.025em}p+p{margin-top:16px}.wrap{max-width:1200px;margin:auto;width:calc(100% - 80px)}.header{background:var(--navy);border-bottom:1px solid #ffffff20;color:#fff}.nav{height:90px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:inline-flex;align-items:center;font-family:var(--display);font-size:1.55rem;font-weight:800;letter-spacing:-.065em;white-space:nowrap}.mark{border:1px solid #ffffff50;border-radius:8px;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;letter-spacing:-.08em;margin-right:10px}.brand-dot{color:var(--lime)}nav{display:flex;gap:30px;font-size:.94rem;color:#d4e1e5}nav a:hover{color:var(--lime)}.button{border:1px solid var(--ink);background:var(--ink);color:white;border-radius:6px;padding:13px 20px;display:inline-flex;align-items:center;justify-content:center;gap:22px;font-weight:600;line-height:1.4;transition:background .15s,transform .15s}.button:hover{background:#254451;transform:translateY(-1px)}.button.small{padding:11px 19px;border-color:#a1b1b9;background:transparent}.button.small:hover{border-color:var(--lime)}.button.lime{background:var(--lime);color:var(--navy);border-color:var(--lime)}.button.lime:hover{background:#e3ff93}.button.secondary{background:white;color:var(--ink);border-color:var(--line)}.full{width:100%}.hero{background:var(--navy);color:white;padding:82px 0 76px}.hero-grid{display:grid;grid-template-columns:1.08fr 1fr;gap:62px;align-items:center}.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;margin-bottom:23px;line-height:1.6}.hero .eyebrow{color:#dce9ee;display:flex;align-items:center;gap:11px}.tiny-rule{display:inline-block;width:25px;height:2px;background:var(--lime)}h1 span{color:var(--lime)}.lead{font-size:1.16rem;line-height:1.65;color:#cbd8de;margin-top:26px;max-width:490px}.actions{display:flex;gap:26px;align-items:center;margin-top:32px;flex-wrap:wrap}.text-link{font-size:.95rem;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:3px;display:inline-flex;gap:15px}.light{color:#fff}.hero-note{font-size:.86rem;color:#a9bdc6;margin-top:21px}.hero-preview{border:1px solid #ffffff22;background:#fff;color:var(--ink);border-radius:12px;box-shadow:0 22px 70px #0003;transform:rotate(-1deg);overflow:hidden}.preview-bar{background:#ecf1f3;display:flex;align-items:center;justify-content:space-between;padding:15px 22px;gap:12px}.preview-logo{font-weight:800;letter-spacing:.06em;font-size:.78rem}.tag{font-size:.75rem}.plain{color:#60717a}.preview-heading{padding:26px 24px 19px;display:flex;align-items:center;justify-content:space-between}.preview-heading h2{font-size:1.55rem;letter-spacing:-.025em;margin-top:6px}.muted{color:var(--muted);font-size:.85rem}.count-pill{background:var(--navy);color:var(--lime);border-radius:50%;padding:7px 12px;font-size:1.2rem;font-weight:600}.preview-row{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-top:1px solid #eaf0f2;gap:10px}.preview-row strong,.preview-row .muted{display:block}.preview-row strong{font-size:.98rem;line-height:1.5;margin:3px 0}.row-id{font-size:.76rem;font-weight:600;color:var(--muted);letter-spacing:.04em}.status{font-size:.75rem;line-height:1.5;white-space:nowrap;border-radius:4px;padding:5px 9px;font-weight:600;display:inline-flex}.ready{color:#14564c;background:#dcefe8}.paused{color:#805310;background:#fff0cb}.scheduled{color:#516273;background:#eaf0f6}.preview-bottom{background:#f4f7f7;padding:20px 24px;display:flex;align-items:center;gap:13px;font-size:.87rem;line-height:1.6}.check{background:#dcefe8;color:#14564c;border-radius:50%;width:27px;height:27px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}.principles{background:#eff4f5;border-bottom:1px solid var(--line)}.principle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:23px 0}.principle-grid p{font-size:.9rem;font-weight:500;margin:0}.principle-grid span{color:var(--teal);margin-right:16px;font-size:.77rem;font-weight:700}.section{padding:92px 0}.section-heading{max-width:650px}.section-heading>p:last-child{font-size:1.1rem;color:var(--muted);margin-top:23px}.section .eyebrow{color:var(--teal)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-top:51px}.steps article{border-top:1px solid var(--line);padding-top:23px}.step-number{font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--teal)}.steps h3{margin-top:19px;max-width:280px}.steps p{margin-top:16px;color:var(--muted);font-size:.98rem}.demo-section{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.demo-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}.body-large{font-size:1.12rem;color:var(--muted);margin-top:25px}.demo-disclaimer{font-size:.85rem;color:var(--muted);max-width:330px;margin-top:25px}.demo-panel{background:white;border:1px solid var(--line);border-radius:10px;padding:27px;box-shadow:0 12px 35px #152f3a08}.segment{display:flex;background:#eef3f5;padding:4px;gap:4px;border-radius:7px}.segment button{border:0;background:transparent;padding:10px 8px;border-radius:5px;flex:1;font-size:.9rem;font-weight:600;color:var(--muted)}.segment .active{background:white;color:var(--ink);box-shadow:0 1px 4px #0001}.demo-title{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:26px 0}.demo-title h3{font-size:1.3rem;margin:5px 0}.email-preview{border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:4px;padding:20px;background:#fbfcfd}.email-label{font-size:.75rem;letter-spacing:.09em;color:var(--muted);font-weight:700}.email-preview p{font-size:.95rem;margin-top:12px}.demo-explanation{font-size:.9rem;min-height:50px;margin:19px 0!important;color:var(--muted)}.demo-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.demo-actions .button{font-size:.85rem;padding:11px 13px}.reset{border:0;background:none;color:var(--muted);font-size:.85rem;text-decoration:underline;margin-left:auto}.horizontal{display:flex;max-width:none;align-items:end;justify-content:space-between;gap:60px}.horizontal>p:last-child{max-width:410px;margin-bottom:4px}.industry-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}.industry-card{padding:34px;border:1px solid var(--line);border-radius:8px;background:#fafcfc}.industry-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:35px}.industry-index{font-family:var(--display);font-size:2rem;font-weight:600;color:#b3c6cc}.chip{font-size:.75rem;letter-spacing:.08em;border:1px solid var(--line);border-radius:4px;padding:5px 8px;color:#5b717a}.industry-card h3{font-size:2rem;margin-bottom:20px}.industry-card p{color:var(--muted);max-width:430px}.industry-card ul{list-style:none;padding:0;margin:22px 0 31px}.industry-card li{padding:6px 0;font-size:.93rem}.industry-card li:before{content:'✓';color:var(--teal);margin-right:12px}.fit-note{border-left:3px solid var(--teal);padding:10px 20px;margin-top:31px;max-width:950px;font-size:.94rem;color:var(--muted)}.fit-note strong{color:var(--ink)}.pilot-section{background:var(--navy);color:white}.pilot-grid{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center}.pilot-section .eyebrow{color:var(--lime)}.pilot-section h2{font-size:clamp(2.7rem,4.2vw,4rem)}.pilot-section .body-large{color:#cedce1}.pilot-grid>div>p:not(.eyebrow){max-width:450px;color:#bccdd5}.pricing{background:#fff;color:var(--ink);padding:34px;border-radius:10px}.pricing-label{color:var(--teal);font-size:.76rem;letter-spacing:.1em;font-weight:700}.price{font-size:3.5rem;font-family:var(--display);font-weight:700;letter-spacing:-.055em;margin-top:14px;line-height:1.15}.price span{display:inline-block;font-size:.9rem;color:var(--muted);font-weight:400;letter-spacing:normal;margin-left:12px}.pricing-sub{color:var(--muted);font-size:.98rem;margin-top:7px}.included{list-style:none;padding:19px 0;margin:15px 0;border-top:1px solid var(--line)}.included li{font-size:.92rem;padding:7px 0 7px 22px;position:relative;line-height:1.5}.included li:before{content:'✓';position:absolute;left:0;color:var(--teal)}.pricing-note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:11px}.next-price{margin-top:23px;padding-top:20px;border-top:1px solid var(--line);font-size:.88rem}.next-price p{color:var(--muted);margin-top:7px;line-height:1.6}.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}.faq details{border-bottom:1px solid var(--line)}.faq details:first-child{border-top:1px solid var(--line)}summary{cursor:pointer;font-weight:600;padding:21px 25px 21px 0;list-style:none;position:relative;line-height:1.5}summary:after{content:'+';position:absolute;right:2px;font-size:1.3rem;top:16px;color:var(--teal)}details[open] summary:after{content:'−'}summary::-webkit-details-marker{display:none}.faq details p{padding:0 20px 22px 0;color:var(--muted);font-size:.96rem}.contact-section{background:#eaf2f1;padding:65px 0}.contact-grid{display:flex;align-items:center;justify-content:space-between;gap:35px}.contact-grid h2{font-size:2.45rem}.contact-grid p:not(.eyebrow){margin-top:20px;max-width:610px;color:#47676d}.contact-grid .eyebrow{color:var(--teal)}footer{background:var(--navy);color:#b7c9d0;padding:30px 0}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:.84rem}.footer-grid .brand{color:#fff;font-size:1.3rem}.footer-grid>div{display:flex;gap:25px}.skip{position:absolute;left:10px;top:-60px;z-index:10;background:white;color:var(--ink);padding:10px}.skip:focus{top:10px}.privacy{max-width:740px;padding:80px 0}.privacy h1{font-size:3rem}.privacy h2{font-size:1.45rem;margin:30px 0 12px}.privacy p{color:var(--muted)}.privacy a{text-decoration:underline}
+@media(max-width:1050px){.wrap{width:calc(100% - 48px)}.hero-grid{gap:30px}.hero-preview{transform:none}.hero{padding:64px 0}.demo-grid,.pilot-grid{gap:40px}.actions{gap:18px}.preview-row{padding:15px 18px}.status{font-size:.75rem}.hero-note{max-width:320px}.faq-grid{gap:40px}}
+@media(max-width:780px){.nav{height:77px}.nav nav{display:none}.brand{font-size:1.35rem}.hero-grid,.demo-grid,.pilot-grid,.faq-grid{grid-template-columns:1fr}.hero-copy{max-width:590px}.hero-preview{margin-top:12px;max-width:550px}.hero{padding:49px 0}.hero-note{max-width:none}.principle-grid{grid-template-columns:1fr;gap:9px;padding:20px 0}.section{padding:60px 0}.steps{grid-template-columns:1fr;gap:27px;margin-top:32px}.steps h3{max-width:none}.steps p{max-width:560px}.horizontal{display:block}.horizontal>p:last-child{max-width:560px}.industry-grid{grid-template-columns:1fr;gap:20px}.industry-card{padding:27px}.demo-disclaimer{max-width:none}.pricing{max-width:580px}.pilot-grid{gap:35px}.faq-grid{gap:30px}.contact-grid{align-items:start;flex-direction:column}.contact-grid h2{font-size:2rem}.footer-grid{align-items:start;flex-wrap:wrap}.footer-grid>div{width:100%;flex-wrap:wrap}.section-heading>p:last-child{font-size:1rem}.hero-preview{width:100%}.lead{font-size:1.06rem}h1{font-size:clamp(2.6rem,8vw,3.8rem)}}
+@media(max-width:420px){.wrap{width:calc(100% - 32px)}.nav{gap:10px}.nav .small{padding:10px 12px;font-size:.86rem}.brand{font-size:1.2rem}.mark{width:30px;height:30px;margin-right:7px}.demo-panel,.pricing{padding:20px}.preview-bar{padding:14px}.preview-heading{padding:20px 15px}.preview-row{padding:16px 15px;align-items:start}.preview-row strong{font-size:.88rem}.preview-row .muted{font-size:.78rem}.status{font-size:.75rem;padding:4px 6px}.demo-title{align-items:start;flex-direction:column}.preview-bottom{padding:17px 15px}.demo-actions .button{flex:1}.reset{margin-left:0}.price span{display:block;margin:8px 0 0}.hero h1{font-size:2.75rem}.hero .eyebrow{font-size:.75rem;letter-spacing:.09em}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
+
+/* Final review: clearer actions, readable small labels, inline privacy. */
+
+.hero-preview{transform:none}.hero-note{font-size:.9rem}.nav .small{white-space:nowrap}.privacy-disclosure{border-top:1px solid #ffffff26;margin-top:25px;max-width:850px}.privacy-disclosure summary{font-size:.9rem;color:#c9d8de}.privacy-disclosure summary:after{color:var(--lime)}.privacy-content{padding:0 0 24px;font-size:.9rem;color:#bfd0d8}.privacy-content h3{font-size:1.08rem;letter-spacing:-.015em;margin:24px 0 9px;color:#fff}.privacy-content a{text-decoration:underline}.hero-preview .status{font-size:.75rem}.demo-panel .status{font-size:.875rem}.button{min-height:44px}
+@media(max-width:780px){.hero-grid{gap:24px}.nav .brand{font-size:1.2rem}.nav .small{font-size:.8rem;padding:10px 12px}.nav{gap:10px}.privacy-disclosure{max-width:100%}.preview-row{flex-wrap:wrap;row-gap:8px}}
+
+  </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <div class="logo">agent<span>wright</span></div>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#founder">About</a>
-      <a href="#cta" class="btn-nav">Book a Call</a>
-    </div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header"><div class="wrap nav">
+  <a class="brand" href="#" aria-label="AgentWright home"><span class="mark" aria-hidden="true">aw</span>agentwright<span class="brand-dot">.</span></a>
+  <nav aria-label="Main navigation"><a href="#how">How it works</a><a href="#industries">Who it's for</a><a href="#pilot">The pilot</a></nav>
+  <a class="button small" href="mailto:hello@agentwright.ai?subject=AgentWright%20quote%20follow-up%20pilot">Ask about the pilot</a>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap hero-grid">
+  <div class="hero-copy"><p class="eyebrow"><span class="tiny-rule"></span> QUOTE FOLLOW-UP, TAKEN CARE OF</p>
+  <h1>You sent the quote.<br><span>Keep it moving.</span></h1>
+  <p class="lead">Quote follow-up for fabricators and sign shops. Keep open quotes organized, send approved reminders, and bring buyer replies back to your team.</p>
+  <div class="actions"><a class="button lime" href="#pilot">See the 30-day pilot <span aria-hidden="true">↗</span></a><a class="text-link light" href="#demo">See how it works</a></div>
+  <p class="hero-note">Your existing quotes. Your Gmail account. Your team in control.</p>
   </div>
-</nav>
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">Now accepting clients</div>
-      <h1>Your business runs on workflows.<br>We make them <span class="accent">run on AI.</span></h1>
-      <p class="hero-sub">We design, build, and deploy AI agent systems that automate your most time-consuming operations. Not slide decks. Not demos. Production systems, live in your stack.</p>
-      <div class="hero-actions">
-        <a href="#cta" class="btn-primary">Book a Free Discovery Call</a>
-        <a href="#services" class="btn-secondary">See What We Build</a>
-      </div>
-    </div>
+  <div class="hero-preview" aria-label="Illustrative quote follow-up tracker">
+    <div class="preview-bar"><span class="preview-logo">aw / QUOTE DESK</span><span class="tag plain">Illustrative example</span></div>
+    <div class="preview-heading"><div><p class="muted">A clear next step for every quote</p><h2>Today's follow-up</h2></div><span class="count-pill">03</span></div>
+    <div class="preview-row"><div><span class="row-id">Q-1042</span><strong>Stainless enclosures</strong><span class="muted">First follow-up ready</span></div><span class="status ready">Due today</span></div>
+    <div class="preview-row"><div><span class="row-id">Q-1043</span><strong>Equipment panels</strong><span class="muted">Buyer asked a question</span></div><span class="status paused">Reply received</span></div>
+    <div class="preview-row"><div><span class="row-id">Q-1044</span><strong>Bracket assemblies</strong><span class="muted">Next check-in scheduled</span></div><span class="status scheduled">In progress</span></div>
+    <div class="preview-bottom"><span class="check" aria-hidden="true">✓</span><p>Reminders pause when the buyer replies.<br><strong>Your team takes it from there.</strong></p></div>
   </div>
-</section>
-
-<div class="proof-bar">
-  <div class="proof-inner">
-    <div class="proof-item"><strong>12+ hrs</strong> saved per client per week</div>
-    <div class="proof-item"><strong>1-3 weeks</strong> from kickoff to deployed</div>
-    <div class="proof-item"><strong>Built by</strong> a founder who runs on the same systems</div>
+</div></section>
+<section class="principles"><div class="wrap principle-grid"><p><span>01</span> Keep your quoting tools</p><p><span>02</span> Agree the timing and wording</p><p><span>03</span> Follow up with control</p></div></section>
+<section class="section" id="how"><div class="wrap">
+  <div class="section-heading"><p class="eyebrow">AFTER THE QUOTE GOES OUT</p><h2>Keep your open quotes<br>on track.</h2><p>Between production, customer calls and the next job, follow-up can slip. AgentWright gives each selected quote a clear next step.</p></div>
+  <div class="steps"><article><span class="step-number">01 / CONNECT</span><h3>Add the quotes you want followed up.</h3><p>Use your existing Gmail account and a shared quote tracker. Your team selects eligible quotes and confirms the details.</p></article><article><span class="step-number">02 / FOLLOW UP</span><h3>Choose when and how to follow up.</h3><p>We configure a limited reminder sequence around your sales cycle. Start with reviewed drafts before enabling agreed automatic messages.</p></article><article><span class="step-number">03 / HAND BACK</span><h3>Make room for the real conversation.</h3><p>A buyer reply pauses the sequence. Your team answers questions and updates quotes won, lost or closed by phone.</p></article></div>
+</div></section>
+<section class="section demo-section" id="demo"><div class="wrap demo-grid">
+  <div><p class="eyebrow">TRY THE WORKFLOW</p><h2>See what happens<br>when a buyer replies.</h2><p class="body-large">Choose an industry, then simulate a reply or pause the sample quote. See how the next step changes.</p><p class="demo-disclaimer">Interactive illustration only. All companies and quotes are fictional. No email is sent and no mailbox is connected.</p></div>
+  <div class="demo-panel">
+    <div class="segment" role="group" aria-label="Example industry"><button class="active" data-industry="metal" aria-pressed="true">Sheet metal</button><button data-industry="signs" aria-pressed="false">Signs &amp; graphics</button></div>
+    <div class="demo-title"><div><p id="demo-id" class="row-id">Q-1042</p><h3 id="demo-name">Stainless enclosures</h3><p id="demo-customer" class="muted">Example Industrial Co.</p></div><span id="demo-status" class="status ready">Follow-up due</span></div>
+    <div class="email-preview"><span class="email-label">APPROVED FOLLOW-UP EXAMPLE</span><p id="demo-message">Hi Alex, checking in on quote Q-1042 for the stainless enclosures. Is the project still moving ahead, or would a later check-in be more useful?</p></div>
+    <p id="demo-explanation" class="demo-explanation" aria-live="polite">The next agreed reminder is ready for review.</p>
+    <div class="demo-actions"><button id="reply-button" class="button">Simulate buyer reply</button><button id="pause-button" class="button secondary">Pause quote</button><button id="reset-button" class="reset">Reset</button></div>
   </div>
-</div>
-
-<section id="services">
-  <div class="container">
-    <div class="section-label">What we do</div>
-    <h2 class="reveal">Four ways we turn AI<br>into operational advantage.</h2>
-    <p class="section-desc reveal">Every engagement starts with understanding your business. Then we build, deploy, and hand you the keys.</p>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-num">01</div>
-        <h3>AI Workflow Audits & Strategy</h3>
-        <p>We map your operations end to end, score every workflow for automation potential, and deliver a prioritized roadmap showing exactly where AI agents will save the most time and money. You get a plan you can act on this quarter.</p>
-        <div class="service-tags">
-          <span class="service-tag">Process mapping</span>
-          <span class="service-tag">ROI scoring</span>
-          <span class="service-tag">Agent architecture</span>
-          <span class="service-tag">90-day roadmap</span>
-        </div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">02</div>
-        <h3>Agent System Buildouts</h3>
-        <p>We design and deploy production agent systems tailored to your workflows: automated outreach, document generation, research pipelines, CRM automation, multi-agent architectures. Built on the same tools we use to run our own companies.</p>
-        <div class="service-tags">
-          <span class="service-tag">Claude agents</span>
-          <span class="service-tag">MCP integrations</span>
-          <span class="service-tag">Custom pipelines</span>
-          <span class="service-tag">Multi-agent systems</span>
-        </div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">03</div>
-        <h3>Prompt Engineering & Optimization</h3>
-        <p>The quality of your AI output depends entirely on how you instruct it. We engineer the system prompts, decision logic, and guardrails that turn a general-purpose model into a specialist for your specific business needs.</p>
-        <div class="service-tags">
-          <span class="service-tag">System prompts</span>
-          <span class="service-tag">Decision logic</span>
-          <span class="service-tag">A/B testing</span>
-          <span class="service-tag">Guardrails</span>
-        </div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">04</div>
-        <h3>Team Training & Enablement</h3>
-        <p>We don't just hand over a system and walk away. Your team gets hands-on training, a custom operations playbook, and ongoing support until they can run, troubleshoot, and improve the agents on their own.</p>
-        <div class="service-tags">
-          <span class="service-tag">Live workshops</span>
-          <span class="service-tag">Custom playbooks</span>
-          <span class="service-tag">1-on-1 coaching</span>
-          <span class="service-tag">30-day support</span>
-        </div>
-      </div>
-    </div>
+</div></section>
+<section class="section" id="industries"><div class="wrap">
+  <div class="section-heading horizontal"><div><p class="eyebrow">TWO INDUSTRIES. ONE FOCUSED SYSTEM.</p><h2>Built around your<br>outstanding quotes.</h2></div><p>The first pilots are for independent US businesses that send quotes by email and still manage follow-up manually.</p></div>
+  <div class="industry-grid">
+    <article class="industry-card"><div class="industry-top"><span class="industry-index">01</span><span class="chip">FABRICATION</span></div><h3>Sheet-metal<br>fabricators</h3><p>For shops quoting custom parts, enclosures and assemblies, where the estimator also has plenty of other work to do.</p><ul><li>Keep your estimating and pricing process</li><li>Track selected quotes after they're sent</li><li>Give the team a clear follow-up queue</li></ul><a class="text-link" data-pilot="sheet-metal fabrication" href="mailto:hello@agentwright.ai?subject=Sheet-metal%20quote%20follow-up%20pilot">Discuss a fabrication pilot <span aria-hidden="true">↗</span></a></article>
+    <article class="industry-card"><div class="industry-top"><span class="industry-index">02</span><span class="chip">SIGNS &amp; GRAPHICS</span></div><h3>Commercial sign<br>&amp; graphics shops</h3><p>For independent shops quoting storefront signs, fleet graphics and custom commercial work, with follow-up spread across inboxes and memory.</p><ul><li>Keep your design and quoting tools</li><li>Agree a suitable check-in schedule</li><li>Pause reminders when the buyer responds</li></ul><a class="text-link" data-pilot="commercial signs and graphics" href="mailto:hello@agentwright.ai?subject=Sign-shop%20quote%20follow-up%20pilot">Discuss a sign-shop pilot <span aria-hidden="true">↗</span></a></article>
   </div>
-</section>
-
-<section id="process" style="border-top:1px solid var(--border)">
-  <div class="container">
-    <div class="section-label">How it works</div>
-    <h2 class="reveal">From first call to<br>running system in weeks.</h2>
-    <div class="process-steps">
-      <div class="step reveal">
-        <div class="step-number">01</div>
-        <div class="step-free">Free</div>
-        <h3>Discovery Call</h3>
-        <p>A 30-minute conversation to understand your workflows, challenges, and goals. We identify your highest-impact opportunities and tell you honestly if we can help.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-number">02</div>
-        <h3>AI Audit</h3>
-        <p>A deep-dive into your operations. We map your workflows, score them for AI readiness, and deliver a prioritized action plan with agent architecture recommendations.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-number">03</div>
-        <h3>Build & Deploy</h3>
-        <p>We build your agent systems, write the prompts, connect the integrations, test everything, and deploy it live in your stack. Typical timeline: 1 to 3 weeks.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-number">04</div>
-        <h3>Train & Optimize</h3>
-        <p>Your team gets trained, your playbook gets delivered, and we stay on for 30 days to optimize performance. You walk away self-sufficient.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="founder" style="border-top:1px solid var(--border)">
-  <div class="container">
-    <div class="section-label">Who we are</div>
-    <div class="founder-section reveal">
-      <h2>Built by a founder,<br>for founders.</h2>
-      <p class="founder-quote">"I don't just advise on AI. I build agent systems for my own companies every day. The pipelines that handle investor outreach, the research workflows that power product development, the automations that run daily operations, they're all agent-driven. I build the same for you."</p>
-      <div class="founder-name">David Amsel</div>
-      <div class="founder-title">Serial entrepreneur. Built and exited businesses in regulated industries. Completed multi-year federal contracts including custom software. Now building full-time with AI agents.</div>
-      <p class="founder-bio">AgentWright exists because most AI consulting is disconnected from reality. Consultants who have never shipped a production agent system are charging businesses for strategy decks that collect dust. We took a different approach: build the systems first, prove they work by running our own operations on them, then offer the same to others. Every system we deploy for a client is built on patterns we have already battle-tested ourselves.</p>
-    </div>
-  </div>
-</section>
-
-<section id="cta" class="cta-section">
-  <div class="container">
-    <div class="cta-box reveal">
-      <div class="section-label" style="justify-content:center">Get started</div>
-      <h2>Find out where AI agents<br>will hit hardest in your business.</h2>
-      <p class="section-desc" style="text-align:center">Book a free 30-minute discovery call. No pitch, no commitment. We will walk through your workflows and tell you exactly where automation would deliver the biggest return.</p>
-      <div style="text-align: center;">
-  <button class="btn-primary" onclick="window.open('https://cal.com/agentwright/30min', '_blank')">Book Free Discovery Call</button>
-</div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="logo">agent<span>wright</span></div>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#founder">About</a>
-        <a href="mailto:hello@agentwright.ai">Contact</a>
-        <a href="https://linkedin.com/company/agentwright" target="_blank">LinkedIn</a>
-      </div>
-      <div class="footer-copy">&copy; 2026 AgentWright. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
-
+  <div class="fit-note"><strong>A useful starting point:</strong> You send quotes regularly, follow-up takes time or gets missed, and one person can own the tracker.</div>
+</div></section>
+<section class="section pilot-section" id="pilot"><div class="wrap pilot-grid">
+  <div><p class="eyebrow">START SMALL. MEASURE THE DIFFERENCE.</p><h2>One inbox.<br>Twenty quotes.<br>Thirty days.</h2><p class="body-large">We check the fit, agree a fixed scope and test the process on a manageable set of your quotes.</p><p>At the end, review the time spent, useful buyer responses, and the effort needed to keep it running. Then decide whether to continue.</p></div>
+  <div class="pricing"><div class="pricing-label">30-DAY PILOT</div><div class="price">$500<span>one-time pilot fee</span></div><p class="pricing-sub">30 days, up to 20 eligible quotes.</p><ul class="included"><li>One Google Workspace Gmail mailbox</li><li>One shared quote tracker</li><li>Up to three approved follow-up messages per quote</li><li>Reply pauses and manual stop controls</li><li>Setup, one training session and an end-of-pilot review</li></ul><a class="button lime full" href="mailto:hello@agentwright.ai?subject=AgentWright%2030-day%20pilot&body=Hi%20AgentWright%20team%2C%0A%0AI%27d%20like%20to%20discuss%20the%20quote-follow-up%20pilot.%0A%0ACompany%3A%0AIndustry%3A%0AApproximate%20quotes%20sent%20per%20month%3A%0ACurrent%20email%20and%20quoting%20tools%3A%0AHow%20we%20follow%20up%20today%3A%0A%0AThanks">Ask about the pilot <span aria-hidden="true">↗</span></a><p class="pricing-note">Email hello@agentwright.ai. We'll confirm fit and scope before payment.</p><div class="next-price"><strong>If you choose to continue</strong><p>The $500 pilot counts toward $1,500 total setup, leaving $1,000. Ongoing monitoring and maintenance is $250/month for up to 100 new eligible quotes per month. Required software is billed separately. Continued service requires a separate agreement.</p></div></div>
+</div></section>
+<section class="section faq-section"><div class="wrap faq-grid"><div><p class="eyebrow">A FEW PRACTICAL QUESTIONS</p><h2>Know what<br>you're getting.</h2></div><div class="faq">
+  <details><summary>Does this replace our quoting software?</summary><p>Your team keeps preparing and pricing quotes in its existing tools. AgentWright handles the agreed follow-up process after selected quotes are sent. The initial scope does not include ERP integration, CAD analysis or automated pricing.</p></details>
+  <details><summary>Will it send messages without our control?</summary><p>You approve the wording, timing and eligible quotes. We begin with reviewed drafts. Automatic sending is enabled only after the workflow has been tested in your account and you authorize it. Detected replies to tracked conversations pause reminders. Your team reviews ambiguous or separate-thread responses and records phone orders and other offline decisions in the tracker.</p></details>
+  <details><summary>What software do we need?</summary><p>The first version uses one Google Workspace Gmail account, Google Sheets and Make. These accounts belong to you. Any required software subscriptions are separate from AgentWright's fee. Outlook and custom integrations are outside the initial pilot.</p></details>
+  <details><summary>What if we already have follow-up automation?</summary><p>If it works well, you may not need this service. The pilot is for businesses with a specific gap in their current process. We will check that before agreeing to start.</p></details>
+  <details><summary>Do you guarantee more sales?</summary><p>No. Follow-up can help organize opportunities and obtain responses, but price, timing, fit and buying decisions are outside this system's control. The pilot measures what changes in your actual process.</p></details>
+  <details><summary>How much can we customize?</summary><p>We configure your signature, timing, approved messages and tracker owner. The workflow and supported tools remain consistent. New integrations and custom features are outside this offer. Monitoring and maintenance cover the agreed workflow; the service agreement sets support hours and response expectations.</p></details>
+</div></div></section>
+<section class="contact-section"><div class="wrap contact-grid"><div><p class="eyebrow">LET'S LOOK AT YOUR FOLLOW-UP</p><h2>Is there a gap between<br>quote sent and next step?</h2><p>Tell us how your team follows up today. We'll help you work out whether the pilot fits.</p></div><a class="button lime" href="mailto:hello@agentwright.ai?subject=Our%20quote%20follow-up%20process">Contact AgentWright <span aria-hidden="true">↗</span></a></div></section>
+</main>
+<footer><div class="wrap footer-grid"><a class="brand" href="#"><span class="mark" aria-hidden="true">aw</span>agentwright<span class="brand-dot">.</span></a><span>© 2026 AgentWright</span><div><a href="mailto:hello@agentwright.ai">hello@agentwright.ai</a><a href="#privacy">Privacy</a></div></div><div class="wrap"><details id="privacy" class="privacy-disclosure"><summary>Website privacy</summary><div class="privacy-content"><p>Last updated: September 6, 2026.</p><h3>This website</h3><p>This website contains an interactive illustration using fictional quotes. The illustration runs in your browser and does not connect to your mailbox or send emails. This version has no analytics scripts, advertising trackers, embedded booking tools or contact form. Fonts are loaded from Google Fonts, which receives the request needed to deliver them. The hosting provider may process technical connection and security information.</p><h3>When you contact us</h3><p>Email links open your email application. The information you choose to send, including your contact details and questions, is used to respond and discuss the service. Please do not send customer quote files, drawings or other sensitive business information in an initial inquiry.</p><h3>Client workflows</h3><p>A pilot's access permissions, software providers, data handling, retention and service terms are agreed before connecting client accounts. This website does not itself run a client quote-follow-up workflow.</p><h3>Questions and requests</h3><p>Contact <a href="mailto:hello@agentwright.ai">hello@agentwright.ai</a> with questions about your information, to request correction or deletion, or to ask us to stop contacting you.</p></div></details></div></footer>
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+'use strict';
+const examples={metal:{id:'Q-1042',name:'Stainless enclosures',company:'Example Industrial Co.',message:'Hi Alex, checking in on quote Q-1042 for the stainless enclosures. Is the project still moving ahead, or would a later check-in be more useful?'},signs:{id:'Q-2086',name:'Storefront signage',company:'Example Retail Co.',message:'Hi Alex, checking in on quote Q-2086 for the storefront signage. Is the project still moving ahead, or would a later check-in be more useful?'}};
+let selected='metal';
+const byId=id=>document.getElementById(id);
+function resetDemo(){const e=examples[selected];byId('demo-id').textContent=e.id;byId('demo-name').textContent=e.name;byId('demo-customer').textContent=e.company;byId('demo-message').textContent=e.message;byId('demo-status').textContent='Follow-up due';byId('demo-status').className='status ready';byId('demo-explanation').textContent='The next agreed reminder is ready for review.';byId('reply-button').disabled=false;byId('pause-button').disabled=false;}
+document.querySelectorAll('[data-industry]').forEach(button=>button.addEventListener('click',()=>{selected=button.dataset.industry;document.querySelectorAll('[data-industry]').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});resetDemo();}));
+byId('reply-button').addEventListener('click',()=>{byId('demo-status').textContent='Reply received';byId('demo-status').className='status paused';byId('demo-explanation').textContent='Example reply: “Can you confirm the lead time?” Reminders are paused. Your team handles the question.';byId('reply-button').disabled=true;byId('pause-button').disabled=true;});
+byId('pause-button').addEventListener('click',()=>{byId('demo-status').textContent='Manually paused';byId('demo-status').className='status scheduled';byId('demo-explanation').textContent='The quote is paused. No further reminder is due until your team reviews and resumes it.';byId('reply-button').disabled=true;byId('pause-button').disabled=true;});
+byId('reset-button').addEventListener('click',resetDemo);
+const requestedIndustry=new URLSearchParams(window.location.search).get('industry');
+if(requestedIndustry==='signs'){document.querySelector('[data-industry="signs"]').click();}
 
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if(target) {
-      e.preventDefault();
-      const offset = 80;
-      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  });
-});
+function revealPrivacy(){if(window.location.hash==="#privacy"){const privacy=document.getElementById("privacy");if(privacy)privacy.open=true;}}
+window.addEventListener("hashchange",revealPrivacy);revealPrivacy();
+
 </script>
-</body>
-</html>
+</body></html>
