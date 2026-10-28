@@ -1,105 +1,635 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AgentWright | Keep your quotes moving</title>
-  <meta name="description" content="A practical quote-follow-up system for sheet-metal fabricators and commercial sign shops. Keep your quoting tools. Start with a scoped, 30-day pilot.">
-  <meta name="theme-color" content="#0b202a">
-  <meta property="og:title" content="AgentWright | Keep your quotes moving">
-  <meta property="og:description" content="A clear next step for every open quote. Quote follow-up for fabricators and commercial sign shops.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230b202a%22%2F%3E%3Ctext%20x%3D%227%22%20y%3D%2242%22%20fill%3D%22%23d7f478%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2235%22%20font-weight%3D%22bold%22%20letter-spacing%3D%22-3%22%3Eaw%3C%2Ftext%3E%3C%2Fsvg%3E" type="image/svg+xml">
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-:root{--navy:#0b202a;--ink:#152f3a;--teal:#17675e;--lime:#d7f478;--muted:#62737a;--paper:#f5f8f9;--line:#dce4e7;--white:#fff;--font:'DM Sans',Arial,sans-serif;--display:'Manrope',Arial,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;color:var(--ink);background:white;font-family:var(--font);font-size:16px;line-height:1.65}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:disabled{opacity:.55;cursor:default}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #338cdb;outline-offset:5px}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--display);line-height:1.13;letter-spacing:-.04em}h1{font-size:clamp(2.8rem,5.15vw,4.75rem);font-weight:700}h2{font-size:clamp(2.1rem,3.3vw,3.1rem);font-weight:700}h3{font-size:1.38rem;letter-spacing:-.025em}p+p{margin-top:16px}.wrap{max-width:1200px;margin:auto;width:calc(100% - 80px)}.header{background:var(--navy);border-bottom:1px solid #ffffff20;color:#fff}.nav{height:90px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:inline-flex;align-items:center;font-family:var(--display);font-size:1.55rem;font-weight:800;letter-spacing:-.065em;white-space:nowrap}.mark{border:1px solid #ffffff50;border-radius:8px;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;letter-spacing:-.08em;margin-right:10px}.brand-dot{color:var(--lime)}nav{display:flex;gap:30px;font-size:.94rem;color:#d4e1e5}nav a:hover{color:var(--lime)}.button{border:1px solid var(--ink);background:var(--ink);color:white;border-radius:6px;padding:13px 20px;display:inline-flex;align-items:center;justify-content:center;gap:22px;font-weight:600;line-height:1.4;transition:background .15s,transform .15s}.button:hover{background:#254451;transform:translateY(-1px)}.button.small{padding:11px 19px;border-color:#a1b1b9;background:transparent}.button.small:hover{border-color:var(--lime)}.button.lime{background:var(--lime);color:var(--navy);border-color:var(--lime)}.button.lime:hover{background:#e3ff93}.button.secondary{background:white;color:var(--ink);border-color:var(--line)}.full{width:100%}.hero{background:var(--navy);color:white;padding:82px 0 76px}.hero-grid{display:grid;grid-template-columns:1.08fr 1fr;gap:62px;align-items:center}.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;margin-bottom:23px;line-height:1.6}.hero .eyebrow{color:#dce9ee;display:flex;align-items:center;gap:11px}.tiny-rule{display:inline-block;width:25px;height:2px;background:var(--lime)}h1 span{color:var(--lime)}.lead{font-size:1.16rem;line-height:1.65;color:#cbd8de;margin-top:26px;max-width:490px}.actions{display:flex;gap:26px;align-items:center;margin-top:32px;flex-wrap:wrap}.text-link{font-size:.95rem;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:3px;display:inline-flex;gap:15px}.light{color:#fff}.hero-note{font-size:.86rem;color:#a9bdc6;margin-top:21px}.hero-preview{border:1px solid #ffffff22;background:#fff;color:var(--ink);border-radius:12px;box-shadow:0 22px 70px #0003;transform:rotate(-1deg);overflow:hidden}.preview-bar{background:#ecf1f3;display:flex;align-items:center;justify-content:space-between;padding:15px 22px;gap:12px}.preview-logo{font-weight:800;letter-spacing:.06em;font-size:.78rem}.tag{font-size:.75rem}.plain{color:#60717a}.preview-heading{padding:26px 24px 19px;display:flex;align-items:center;justify-content:space-between}.preview-heading h2{font-size:1.55rem;letter-spacing:-.025em;margin-top:6px}.muted{color:var(--muted);font-size:.85rem}.count-pill{background:var(--navy);color:var(--lime);border-radius:50%;padding:7px 12px;font-size:1.2rem;font-weight:600}.preview-row{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-top:1px solid #eaf0f2;gap:10px}.preview-row strong,.preview-row .muted{display:block}.preview-row strong{font-size:.98rem;line-height:1.5;margin:3px 0}.row-id{font-size:.76rem;font-weight:600;color:var(--muted);letter-spacing:.04em}.status{font-size:.75rem;line-height:1.5;white-space:nowrap;border-radius:4px;padding:5px 9px;font-weight:600;display:inline-flex}.ready{color:#14564c;background:#dcefe8}.paused{color:#805310;background:#fff0cb}.scheduled{color:#516273;background:#eaf0f6}.preview-bottom{background:#f4f7f7;padding:20px 24px;display:flex;align-items:center;gap:13px;font-size:.87rem;line-height:1.6}.check{background:#dcefe8;color:#14564c;border-radius:50%;width:27px;height:27px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}.principles{background:#eff4f5;border-bottom:1px solid var(--line)}.principle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:23px 0}.principle-grid p{font-size:.9rem;font-weight:500;margin:0}.principle-grid span{color:var(--teal);margin-right:16px;font-size:.77rem;font-weight:700}.section{padding:92px 0}.section-heading{max-width:650px}.section-heading>p:last-child{font-size:1.1rem;color:var(--muted);margin-top:23px}.section .eyebrow{color:var(--teal)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-top:51px}.steps article{border-top:1px solid var(--line);padding-top:23px}.step-number{font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--teal)}.steps h3{margin-top:19px;max-width:280px}.steps p{margin-top:16px;color:var(--muted);font-size:.98rem}.demo-section{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.demo-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}.body-large{font-size:1.12rem;color:var(--muted);margin-top:25px}.demo-disclaimer{font-size:.85rem;color:var(--muted);max-width:330px;margin-top:25px}.demo-panel{background:white;border:1px solid var(--line);border-radius:10px;padding:27px;box-shadow:0 12px 35px #152f3a08}.segment{display:flex;background:#eef3f5;padding:4px;gap:4px;border-radius:7px}.segment button{border:0;background:transparent;padding:10px 8px;border-radius:5px;flex:1;font-size:.9rem;font-weight:600;color:var(--muted)}.segment .active{background:white;color:var(--ink);box-shadow:0 1px 4px #0001}.demo-title{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:26px 0}.demo-title h3{font-size:1.3rem;margin:5px 0}.email-preview{border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:4px;padding:20px;background:#fbfcfd}.email-label{font-size:.75rem;letter-spacing:.09em;color:var(--muted);font-weight:700}.email-preview p{font-size:.95rem;margin-top:12px}.demo-explanation{font-size:.9rem;min-height:50px;margin:19px 0!important;color:var(--muted)}.demo-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.demo-actions .button{font-size:.85rem;padding:11px 13px}.reset{border:0;background:none;color:var(--muted);font-size:.85rem;text-decoration:underline;margin-left:auto}.horizontal{display:flex;max-width:none;align-items:end;justify-content:space-between;gap:60px}.horizontal>p:last-child{max-width:410px;margin-bottom:4px}.industry-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}.industry-card{padding:34px;border:1px solid var(--line);border-radius:8px;background:#fafcfc}.industry-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:35px}.industry-index{font-family:var(--display);font-size:2rem;font-weight:600;color:#b3c6cc}.chip{font-size:.75rem;letter-spacing:.08em;border:1px solid var(--line);border-radius:4px;padding:5px 8px;color:#5b717a}.industry-card h3{font-size:2rem;margin-bottom:20px}.industry-card p{color:var(--muted);max-width:430px}.industry-card ul{list-style:none;padding:0;margin:22px 0 31px}.industry-card li{padding:6px 0;font-size:.93rem}.industry-card li:before{content:'✓';color:var(--teal);margin-right:12px}.fit-note{border-left:3px solid var(--teal);padding:10px 20px;margin-top:31px;max-width:950px;font-size:.94rem;color:var(--muted)}.fit-note strong{color:var(--ink)}.pilot-section{background:var(--navy);color:white}.pilot-grid{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center}.pilot-section .eyebrow{color:var(--lime)}.pilot-section h2{font-size:clamp(2.7rem,4.2vw,4rem)}.pilot-section .body-large{color:#cedce1}.pilot-grid>div>p:not(.eyebrow){max-width:450px;color:#bccdd5}.pricing{background:#fff;color:var(--ink);padding:34px;border-radius:10px}.pricing-label{color:var(--teal);font-size:.76rem;letter-spacing:.1em;font-weight:700}.price{font-size:3.5rem;font-family:var(--display);font-weight:700;letter-spacing:-.055em;margin-top:14px;line-height:1.15}.price span{display:inline-block;font-size:.9rem;color:var(--muted);font-weight:400;letter-spacing:normal;margin-left:12px}.pricing-sub{color:var(--muted);font-size:.98rem;margin-top:7px}.included{list-style:none;padding:19px 0;margin:15px 0;border-top:1px solid var(--line)}.included li{font-size:.92rem;padding:7px 0 7px 22px;position:relative;line-height:1.5}.included li:before{content:'✓';position:absolute;left:0;color:var(--teal)}.pricing-note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:11px}.next-price{margin-top:23px;padding-top:20px;border-top:1px solid var(--line);font-size:.88rem}.next-price p{color:var(--muted);margin-top:7px;line-height:1.6}.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}.faq details{border-bottom:1px solid var(--line)}.faq details:first-child{border-top:1px solid var(--line)}summary{cursor:pointer;font-weight:600;padding:21px 25px 21px 0;list-style:none;position:relative;line-height:1.5}summary:after{content:'+';position:absolute;right:2px;font-size:1.3rem;top:16px;color:var(--teal)}details[open] summary:after{content:'−'}summary::-webkit-details-marker{display:none}.faq details p{padding:0 20px 22px 0;color:var(--muted);font-size:.96rem}.contact-section{background:#eaf2f1;padding:65px 0}.contact-grid{display:flex;align-items:center;justify-content:space-between;gap:35px}.contact-grid h2{font-size:2.45rem}.contact-grid p:not(.eyebrow){margin-top:20px;max-width:610px;color:#47676d}.contact-grid .eyebrow{color:var(--teal)}footer{background:var(--navy);color:#b7c9d0;padding:30px 0}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:.84rem}.footer-grid .brand{color:#fff;font-size:1.3rem}.footer-grid>div{display:flex;gap:25px}.skip{position:absolute;left:10px;top:-60px;z-index:10;background:white;color:var(--ink);padding:10px}.skip:focus{top:10px}.privacy{max-width:740px;padding:80px 0}.privacy h1{font-size:3rem}.privacy h2{font-size:1.45rem;margin:30px 0 12px}.privacy p{color:var(--muted)}.privacy a{text-decoration:underline}
-@media(max-width:1050px){.wrap{width:calc(100% - 48px)}.hero-grid{gap:30px}.hero-preview{transform:none}.hero{padding:64px 0}.demo-grid,.pilot-grid{gap:40px}.actions{gap:18px}.preview-row{padding:15px 18px}.status{font-size:.75rem}.hero-note{max-width:320px}.faq-grid{gap:40px}}
-@media(max-width:780px){.nav{height:77px}.nav nav{display:none}.brand{font-size:1.35rem}.hero-grid,.demo-grid,.pilot-grid,.faq-grid{grid-template-columns:1fr}.hero-copy{max-width:590px}.hero-preview{margin-top:12px;max-width:550px}.hero{padding:49px 0}.hero-note{max-width:none}.principle-grid{grid-template-columns:1fr;gap:9px;padding:20px 0}.section{padding:60px 0}.steps{grid-template-columns:1fr;gap:27px;margin-top:32px}.steps h3{max-width:none}.steps p{max-width:560px}.horizontal{display:block}.horizontal>p:last-child{max-width:560px}.industry-grid{grid-template-columns:1fr;gap:20px}.industry-card{padding:27px}.demo-disclaimer{max-width:none}.pricing{max-width:580px}.pilot-grid{gap:35px}.faq-grid{gap:30px}.contact-grid{align-items:start;flex-direction:column}.contact-grid h2{font-size:2rem}.footer-grid{align-items:start;flex-wrap:wrap}.footer-grid>div{width:100%;flex-wrap:wrap}.section-heading>p:last-child{font-size:1rem}.hero-preview{width:100%}.lead{font-size:1.06rem}h1{font-size:clamp(2.6rem,8vw,3.8rem)}}
-@media(max-width:420px){.wrap{width:calc(100% - 32px)}.nav{gap:10px}.nav .small{padding:10px 12px;font-size:.86rem}.brand{font-size:1.2rem}.mark{width:30px;height:30px;margin-right:7px}.demo-panel,.pricing{padding:20px}.preview-bar{padding:14px}.preview-heading{padding:20px 15px}.preview-row{padding:16px 15px;align-items:start}.preview-row strong{font-size:.88rem}.preview-row .muted{font-size:.78rem}.status{font-size:.75rem;padding:4px 6px}.demo-title{align-items:start;flex-direction:column}.preview-bottom{padding:17px 15px}.demo-actions .button{flex:1}.reset{margin-left:0}.price span{display:block;margin:8px 0 0}.hero h1{font-size:2.75rem}.hero .eyebrow{font-size:.75rem;letter-spacing:.09em}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentWright | Your own AI team, built around how you already work</title>
+<meta name="description" content="We set up a small team of AI assistants inside your own accounts to run your repeatable business workflows end to end. Your team approves anything that goes out. Then we keep it running.">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="AgentWright | Your own AI team, built around how you already work">
+<meta property="og:description" content="We set up a small team of AI assistants inside your own accounts to run your repeatable business workflows end to end. Your team approves anything that goes out. Then we keep it running.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://agentwright.ai/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230b202a%22%2F%3E%3Ctext%20x%3D%227%22%20y%3D%2242%22%20fill%3D%22%23d7f478%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2235%22%20font-weight%3D%22bold%22%20letter-spacing%3D%22-3%22%3Eaw%3C%2Ftext%3E%3C%2Fsvg%3E" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b1220; --ink-2:#334155; --muted:#64748b; --faint:#94a3b8;
+  --bg:#ffffff; --soft:#f6f8fc; --soft-2:#eef3fb; --line:#e6ebf3;
+  --blue:#2563eb; --blue-d:#1d4ed8; --violet:#7c5cff; --teal:#14b8a6;
+  --grad:linear-gradient(135deg,#2563eb 0%,#6d5dfc 60%,#8b5cf6 100%);
+  --grad-soft:linear-gradient(135deg,#eef4ff 0%,#f3efff 100%);
+  --head:"Plus Jakarta Sans","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --r:18px; --shadow:0 1px 2px rgba(15,23,42,.04),0 12px 32px -12px rgba(15,23,42,.14);
+  --shadow-lg:0 2px 4px rgba(15,23,42,.04),0 30px 60px -24px rgba(37,56,120,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin:0;color:var(--ink)}
+h2{font-size:44px;margin-bottom:16px}
+h3{font-size:20px;font-weight:700;letter-spacing:-.01em}
+p{margin:0 0 14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+.eyebrow:before{content:"";width:18px;height:2px;border-radius:2px;background:var(--grad)}
+.lede{font-size:19px;color:var(--ink-2);max-width:700px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+section{padding:112px 0;position:relative}
+.center{text-align:center}.center .lede{margin-left:auto;margin-right:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 24px;border-radius:12px;font-weight:600;font-size:16px;text-decoration:none;transition:.18s;font-family:var(--sans)}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 24px -10px rgba(79,70,229,.65)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 14px 30px -10px rgba(79,70,229,.75)}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+.btn-ghost:hover{border-color:#cbd5e1}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.ico{display:grid;place-items:center;border-radius:12px;background:var(--grad-soft);color:var(--blue)}
+.ico svg{width:20px;height:20px}
 
-/* Final review: clearer actions, readable small labels, inline privacy. */
+/* nav */
+header.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.82);backdrop-filter:saturate(1.6) blur(12px);border-bottom:1px solid rgba(230,235,243,.8)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.wordmark{font-family:var(--head);font-size:22px;font-weight:800;letter-spacing:-.03em;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.wordmark i{width:12px;height:12px;border-radius:4px;background:var(--grad);display:inline-block;transform:rotate(45deg)}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;font-size:15px;color:var(--ink-2);font-weight:500}
+.nav ul a{text-decoration:none}.nav ul a:hover{color:var(--blue)}
+.nav .btn{padding:10px 16px;font-size:14px}
 
-.hero-preview{transform:none}.hero-note{font-size:.9rem}.nav .small{white-space:nowrap}.privacy-disclosure{border-top:1px solid #ffffff26;margin-top:25px;max-width:850px}.privacy-disclosure summary{font-size:.9rem;color:#c9d8de}.privacy-disclosure summary:after{color:var(--lime)}.privacy-content{padding:0 0 24px;font-size:.9rem;color:#bfd0d8}.privacy-content h3{font-size:1.08rem;letter-spacing:-.015em;margin:24px 0 9px;color:#fff}.privacy-content a{text-decoration:underline}.hero-preview .status{font-size:.75rem}.demo-panel .status{font-size:.875rem}.button{min-height:44px}
-@media(max-width:780px){.hero-grid{gap:24px}.nav .brand{font-size:1.2rem}.nav .small{font-size:.8rem;padding:10px 12px}.nav{gap:10px}.privacy-disclosure{max-width:100%}.preview-row{flex-wrap:wrap;row-gap:8px}}
+/* hero */
+.hero{padding:96px 0 104px;overflow:hidden}
+.glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none;z-index:0}
+.hero .g1{width:520px;height:520px;background:#c7d7ff;top:-160px;right:-80px}
+.hero .g2{width:420px;height:420px;background:#e3d9ff;top:180px;right:300px;opacity:.45}
+.hero .g3{width:360px;height:360px;background:#cdf3ee;bottom:-200px;left:-120px;opacity:.5}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:99px;background:#fff;border:1px solid var(--line);font-size:13.5px;color:var(--ink-2);font-weight:500;box-shadow:0 1px 2px rgba(15,23,42,.05);margin-bottom:26px}
+.pill b{background:var(--grad);color:#fff;font-size:11.5px;padding:3px 9px;border-radius:99px;letter-spacing:.02em;white-space:nowrap}
+.hero h1{font-size:64px;line-height:1.04;margin-bottom:24px;letter-spacing:-.035em}
+.hero .lede{margin-bottom:14px}
+.hero .hero-who{font-size:16px;color:var(--muted);margin-bottom:32px;max-width:600px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.price-note{margin-top:18px;font-size:14px;color:var(--muted)}
+.price-note strong{color:var(--ink)}
 
-  </style>
+.board{position:relative;padding:22px;border-radius:24px;background:rgba(255,255,255,.85);border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+.board-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.board-head b{font-family:var(--head);font-size:16px}
+.live{font-size:12.5px;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+.live:before{content:"";width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.15)}
+.wf{display:grid;grid-template-columns:40px 1fr auto;gap:14px;align-items:center;padding:14px;border-radius:14px;border:1px solid var(--line);background:#fff;margin-bottom:10px}
+.wf .ico{width:40px;height:40px}
+.wf b{display:block;font-size:15px;font-weight:600}
+.wf small{display:block;font-size:13px;color:var(--muted)}
+.chip{font-size:12px;font-weight:600;padding:5px 10px;border-radius:99px;white-space:nowrap}
+.chip.ready{background:#e8f0ff;color:var(--blue-d)}
+.chip.wait{background:#fff6e6;color:#b45309}
+.chip.done{background:#e7f8f1;color:#047857}
+.chain{display:flex;gap:4px;margin-top:6px}
+.chain i{height:4px;width:18px;border-radius:4px;background:#e2e8f0}
+.chain i.on{background:var(--grad)}
+.approve-row{display:flex;align-items:center;gap:12px;margin-top:6px;padding:14px 16px;border-radius:14px;background:var(--ink);color:#fff}
+.approve-row .ico{width:34px;height:34px;background:rgba(255,255,255,.12);color:#fff;flex:none}
+.approve-row b{font-size:14px;display:block}
+.approve-row small{font-size:12.5px;color:#a8b3c7}
+.board-note{position:absolute;top:-12px;right:22px;font-size:11.5px;font-weight:600;color:var(--muted);background:#fff;border:1px solid var(--line);padding:3px 10px;border-radius:99px}
+
+/* works across strip */
+.across{padding:0 0 8px}
+.across-box{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:20px 24px;border-radius:18px;background:var(--soft);border:1px solid var(--line);font-size:15px;color:var(--ink-2)}
+.across-box .tool{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:#fff;border:1px solid var(--line);font-weight:600;color:var(--ink);font-size:14px}
+.across-box .tool svg{width:16px;height:16px;color:var(--blue)}
+
+/* roles */
+.roles-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.role{padding:28px;transition:.2s}
+.role:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.role .ico{width:48px;height:48px;margin-bottom:18px}
+.role .ico svg{width:22px;height:22px}
+.role h3{margin-bottom:8px}
+.role p{margin:0;color:var(--ink-2);font-size:15.5px}
+.callout{margin-top:24px;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:22px 26px;border-radius:18px;background:var(--grad-soft);border:1px solid #dfe6fb;font-size:16px;color:var(--ink-2)}
+.callout p{margin:0}
+.callout .btn{white-space:nowrap;flex:none}
+
+/* workflows */
+.wfsec{background:linear-gradient(180deg,#f7f9ff 0%,#ffffff 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.wfsec .g1{width:600px;height:400px;background:#dfe7ff;top:-120px;left:50%;transform:translateX(-50%);opacity:.6}
+.wfsec .wrap{position:relative;z-index:1}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:40px 0 28px}
+.tab{appearance:none;border:1px solid var(--line);background:#fff;border-radius:99px;padding:10px 16px;font:inherit;font-size:14.5px;font-weight:600;color:var(--ink-2);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.18s;box-shadow:0 1px 2px rgba(15,23,42,.04);position:relative;overflow:hidden}
+.tab small{font-weight:500;color:var(--faint);font-size:12.5px}
+.tab:hover{border-color:#c7d2fe;color:var(--ink)}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab.on small{color:#a8b3c7}
+.tab .prog{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--grad)}
+.stage{padding:34px 34px 30px;border-radius:26px}
+.stage-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:28px}
+.stage-top h3{font-size:24px;font-weight:800;letter-spacing:-.02em}
+.stage-top p{margin:6px 0 0;color:var(--muted);font-size:15.5px}
+.ctrl{display:flex;gap:8px;align-items:center;flex:none}
+.ctrl button{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.ctrl button:hover{border-color:#c7d2fe}
+.track{position:relative;display:grid;gap:12px;padding-top:30px}
+.rail,.rail-fill{position:absolute;top:66px;height:3px;border-radius:3px}
+.rail{background:repeating-linear-gradient(90deg,#d6deeb 0 8px,transparent 8px 14px)}
+.rail-fill{background:var(--grad);width:0;transition:width .9s cubic-bezier(.4,0,.2,1)}
+.node{position:relative;text-align:center;z-index:1}
+.node .disc{width:72px;height:72px;margin:0 auto 12px;border-radius:20px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);color:var(--faint);box-shadow:0 1px 2px rgba(15,23,42,.05);transition:all .45s ease}
+.node .disc svg{width:28px;height:28px}
+.node b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);font-family:var(--head)}
+.node small{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.35;padding:0 4px}
+.node.done .disc{color:var(--blue);border-color:#c7d2fe;background:#f5f8ff}
+.node.active .disc{background:var(--grad);color:#fff;border-color:transparent;transform:translateY(-4px) scale(1.07);box-shadow:0 0 0 7px rgba(99,102,241,.12),0 18px 34px -12px rgba(79,70,229,.6)}
+.node.person .disc{background:var(--ink);color:#fff;border-color:var(--ink)}
+.node.person.active .disc{background:var(--ink);box-shadow:0 0 0 7px rgba(15,23,42,.1),0 18px 34px -12px rgba(15,23,42,.6)}
+.node.trigger .disc{border-style:dashed}
+.packet{position:absolute;top:-6px;left:0;z-index:3;transform:translateX(-50%);transition:left .9s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.packet span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:#fff;color:var(--ink);font-size:12px;font-weight:700;padding:6px 11px;border-radius:99px;border:1px solid #dbe3ff;box-shadow:0 10px 24px -8px rgba(37,56,120,.35)}
+.packet span:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--grad)}
+.packet.go span{animation:bob .9s ease}
+@keyframes bob{40%{transform:translateY(-8px)}100%{transform:none}}
+.stage-bottom{display:grid;grid-template-columns:1fr 1.15fr;gap:24px;margin-top:34px}
+.caption{padding:24px;border-radius:18px;background:var(--soft);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+.caption .stepno{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.caption h4{font-size:22px;margin:8px 0 8px;letter-spacing:-.02em}
+.caption p{color:var(--ink-2);margin:0;font-size:16px;min-height:50px}
+.rule{margin-top:18px;display:flex;gap:12px;align-items:center;padding:13px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);font-size:14.5px;color:var(--ink-2)}
+.rule .ico{width:32px;height:32px;flex:none;background:#e7f8f1;color:#047857;border-radius:10px}
+.rule .ico svg{width:16px;height:16px}
+.rule b{color:var(--ink)}
+.dots{display:flex;gap:6px;margin-top:18px}
+.dots i{height:4px;flex:1;max-width:34px;border-radius:4px;background:#dbe2ee;transition:background .3s}
+.dots i.on{background:var(--grad)}
+.log{padding:16px 18px;border-radius:18px;background:#fff;border:1px solid var(--line);min-height:300px}
+.log-head{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);padding-bottom:10px;margin-bottom:6px;border-bottom:1px solid var(--line);font-weight:600}
+.msg{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:start;padding:7px 0;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
+.msg.show{opacity:1;transform:none}
+.who{font-size:11.5px;font-weight:700;padding:4px 8px;border-radius:7px;background:#eef3ff;color:var(--blue-d);text-align:center;white-space:nowrap}
+.who.t{background:#fff4e5;color:#b45309}
+.who.p{background:var(--ink);color:#fff}
+.msg p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.45}
+.wf-foot{text-align:center;margin-top:28px;color:var(--muted);font-size:15px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.step{padding:28px 24px;position:relative}
+.step .num{width:40px;height:40px;border-radius:12px;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:15px;margin-bottom:18px;box-shadow:0 8px 18px -8px rgba(79,70,229,.6)}
+.step h3{font-size:19px;margin-bottom:10px}
+.step p{font-size:15px;color:var(--ink-2);margin:0}
+.step .tag{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:600;color:var(--blue-d);background:#eef3ff;padding:5px 10px;border-radius:8px;line-height:1.4}
+
+/* examples */
+.soft{background:var(--soft)}
+.note{font-size:15px;color:var(--muted)}
+.ex-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
+.ex{padding:30px}
+.ex .head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.ex .head .ico{width:44px;height:44px}
+.ex ul{margin:0;padding:0;list-style:none}
+.ex li{position:relative;padding-left:26px;margin-bottom:10px;font-size:15.5px;color:var(--ink-2)}
+.ex li:before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border-radius:50%;background:#eef3ff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/10px no-repeat}
+.ex li.limit{color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;margin-top:12px;margin-bottom:0;font-size:14.5px}
+.ex li.limit:before{top:16px;background:#fff4e5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b45309' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E") center/10px no-repeat}
+.ex.any{grid-column:1/-1;background:var(--grad);border:0;color:#fff;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;box-shadow:0 24px 50px -24px rgba(79,70,229,.6)}
+.ex.any h3{color:#fff;margin-bottom:8px}
+.ex.any p{color:#e6e9ff;margin:0}
+.ex.any .btn{background:#fff;color:var(--ink);box-shadow:none}
+
+/* safety */
+.safe-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:44px}
+.safe{padding:26px;grid-column:span 2}
+.safe:nth-child(4),.safe:nth-child(5){grid-column:span 3}
+.safe .ico{width:42px;height:42px;margin-bottom:16px;background:#e7f8f1;color:#047857}
+.safe h3{font-size:17px;margin-bottom:6px}
+.safe p{font-size:15px;color:var(--ink-2);margin:0}
+
+/* hours */
+.hours-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:24px;margin-top:36px;align-items:stretch}
+.stat{position:relative;overflow:hidden;border-radius:24px;padding:32px 34px;background:var(--grad);color:#fff;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px -30px rgba(79,70,229,.7)}
+.stat:after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.12);right:-120px;top:-140px}
+.stat .big{font-family:var(--head);font-size:104px;line-height:1;font-weight:800;letter-spacing:-.04em;position:relative}
+.stat p.what{font-size:19px;color:#eef0ff;margin:16px 0 0;line-height:1.45;position:relative}
+.weekbar{margin-top:26px;height:12px;border-radius:8px;background:rgba(255,255,255,.22);overflow:hidden;position:relative}
+.weekbar i{display:block;height:100%;width:58%;background:#fff;border-radius:8px;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.weeklbl{display:flex;justify-content:space-between;font-size:12.5px;color:#dfe3ff;margin-top:8px}
+.stat .src{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25);font-size:13px;color:#e3e6ff;line-height:1.55;position:relative}
+.stat .src a{color:#fff}
+.calc{padding:32px 34px;border-radius:24px}
+.calc h3{font-size:24px;font-weight:800;margin-bottom:4px}
+.calc .hint{font-size:14.5px;color:var(--muted);margin-bottom:22px}
+.slider{margin-bottom:22px}
+.slider label{display:flex;justify-content:space-between;font-size:15px;font-weight:600;margin-bottom:10px;gap:16px}
+.slider label span small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.slider output{font-family:var(--head);font-weight:800;color:var(--blue);font-size:18px;white-space:nowrap}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:6px;background:linear-gradient(90deg,#4f6bf5 var(--p,50%),#e2e8f0 var(--p,50%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid var(--blue);box-shadow:0 2px 8px rgba(37,99,235,.35);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:2px solid var(--blue);cursor:pointer}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.result div{border-radius:16px;padding:18px 20px;background:var(--grad-soft);border:1px solid #e0e7ff}
+.result b{display:block;font-family:var(--head);font-size:42px;font-weight:800;line-height:1.05;letter-spacing:-.03em}
+.result small{font-size:13.5px;color:var(--ink-2)}
+.fine{font-size:13px;color:var(--muted);margin:14px 0 0}
+
+/* pricing */
+.pricing{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:20px;margin-top:48px;align-items:stretch}
+.plan{padding:34px 30px;display:flex;flex-direction:column;border-radius:24px}
+.plan.main{position:relative;border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--grad) border-box;box-shadow:0 30px 60px -30px rgba(79,70,229,.45)}
+.plan .label{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.plan .amt{font-family:var(--head);font-size:52px;font-weight:800;line-height:1;letter-spacing:-.04em}
+.plan .amt small{font-family:var(--sans);font-size:16px;color:var(--muted);font-weight:500;margin-left:4px;letter-spacing:0}
+.plan .from{display:block;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--muted);margin:-4px 0 8px;letter-spacing:0}
+.plan .sub{font-size:14px;color:var(--muted);margin:10px 0 22px}
+.plan p.desc{font-size:15.5px;color:var(--ink-2);margin:0;padding-top:20px;border-top:1px solid var(--line)}
+.plan.third{background:var(--soft);box-shadow:none}
+.plan.third .amt{font-size:40px}
+.pricing-foot{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 26px;border-radius:18px}
+.pricing-foot p{margin:0;color:var(--ink-2);font-size:15.5px;max-width:720px}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:72px}
+.faq-list{padding:8px 28px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:0}
+summary{cursor:pointer;list-style:none;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:#eef3ff;color:var(--blue);font-weight:600;font-size:18px;line-height:1}
+details[open] summary:after{content:"–"}
+details p{margin:10px 0 0;color:var(--ink-2);font-size:15.5px;max-width:640px}
+
+/* closing */
+.closing{padding:40px 0 112px}
+.closing-box{position:relative;overflow:hidden;text-align:center;padding:84px 40px;border-radius:32px;background:var(--grad);color:#fff;box-shadow:0 40px 80px -40px rgba(79,70,229,.7)}
+.closing-box:before,.closing-box:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.1)}
+.closing-box:before{width:420px;height:420px;left:-140px;bottom:-220px}
+.closing-box:after{width:300px;height:300px;right:-80px;top:-140px}
+.closing h2{color:#fff;font-size:46px;max-width:820px;margin:0 auto 16px;position:relative}
+.closing p{color:#e6e9ff;font-size:19px;margin-bottom:32px;position:relative}
+.closing .cta-row{justify-content:center;position:relative}
+.closing .btn-primary{background:#fff;color:var(--ink);box-shadow:0 10px 24px -10px rgba(0,0,0,.35)}
+.closing .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.35)}
+
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer .wordmark{font-size:18px}
+footer a{text-decoration:none}
+
+@media (max-width:1080px){
+  .hero-grid,.faq-grid,.hours-grid,.stage-bottom,.roles-head{grid-template-columns:1fr;gap:40px}
+  .roles{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .pricing{grid-template-columns:1fr}
+  .safe-grid{grid-template-columns:1fr 1fr}
+  .safe,.safe:nth-child(4){grid-column:auto}
+  .safe:nth-child(5){grid-column:1/-1}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  section{padding:72px 0}
+  .nav ul{display:none}
+  .hero{padding:44px 0 64px}
+  .hero h1{font-size:40px}
+  h2{font-size:31px}
+  .lede{font-size:17px}
+  .roles,.steps,.ex-grid,.safe-grid{grid-template-columns:1fr}
+  .safe,.safe:nth-child(4),.safe:nth-child(5){grid-column:auto}
+  .ex.any{grid-template-columns:1fr}
+  .callout,.pricing-foot{flex-direction:column;align-items:flex-start}
+  .stage{padding:20px 16px}
+  .stage-top{flex-direction:column;gap:12px}
+  .tabs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;margin:28px -20px 20px;padding:2px 20px 6px;scrollbar-width:none}
+  .tab{flex:none}
+  .track{grid-template-columns:repeat(3,1fr)!important;row-gap:20px;padding-top:0}
+  .rail,.rail-fill,.packet{display:none}
+  .node .disc{width:56px;height:56px;border-radius:16px}
+  .node .disc svg{width:22px;height:22px}
+  .node b{font-size:13px}.node small{display:none}
+  .msg{grid-template-columns:82px 1fr}
+  .stat .big{font-size:76px}
+  .stat,.calc{padding:26px 22px}
+  .result b{font-size:32px}
+  .board{padding:16px}
+  .wf{grid-template-columns:36px 1fr;}
+  .wf .chip{grid-column:2;justify-self:start}
+  .closing{padding:24px 0 72px}
+  .closing-box{padding:56px 22px;border-radius:24px}
+  .closing h2{font-size:30px}
+  .cta-row .btn{width:100%;justify-content:center}
+  footer .wrap{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .packet{display:none}
+  .msg{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="header"><div class="wrap nav">
-  <a class="brand" href="#" aria-label="AgentWright home"><span class="mark" aria-hidden="true">aw</span>agentwright<span class="brand-dot">.</span></a>
-  <nav aria-label="Main navigation"><a href="#how">How it works</a><a href="#industries">Who it's for</a><a href="#pilot">The pilot</a></nav>
-  <a class="button small" href="mailto:hello@agentwright.ai?subject=AgentWright%20quote%20follow-up%20pilot">Ask about the pilot</a>
+<header class="nav"><div class="wrap">
+  <a href="#" class="wordmark"><i></i>AgentWright</a>
+  <ul><li><a href="#team">AI team</a></li><li><a href="#workflows">Workflows</a></li><li><a href="#how">How it works</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a class="btn btn-primary" href="https://cal.com/agentwright/30min">Book an intro call</a>
 </div></header>
-<main id="main">
-<section class="hero"><div class="wrap hero-grid">
-  <div class="hero-copy"><p class="eyebrow"><span class="tiny-rule"></span> QUOTE FOLLOW-UP, TAKEN CARE OF</p>
-  <h1>You sent the quote.<br><span>Keep it moving.</span></h1>
-  <p class="lead">Quote follow-up for fabricators and sign shops. Keep open quotes organized, send approved reminders, and bring buyer replies back to your team.</p>
-  <div class="actions"><a class="button lime" href="#pilot">See the 30-day pilot <span aria-hidden="true">↗</span></a><a class="text-link light" href="#demo">See how it works</a></div>
-  <p class="hero-note">Your existing quotes. Your Gmail account. Your team in control.</p>
+
+<section class="hero" id="top">
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="pill"><b>AI teams</b> for small businesses and organizations</div>
+      <h1>Your own AI team, built around <span class="grad-text">how you already work.</span></h1>
+      <p class="lede">We learn how your business runs, then set up a small team of AI assistants inside your own accounts. They run your repeatable workflows end to end, passing work to each other across your email, calendar, documents and spreadsheets. Your team approves anything that goes out. Then we keep it running.</p>
+      <p class="hero-who">For small businesses and organizations in the US, in any field where the week disappears into follow-ups, deadlines and paperwork.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://cal.com/agentwright/30min">Book a 30-minute intro call &rarr;</a>
+        <a class="btn btn-ghost" href="mailto:hello@agentwright.ai">Email hello@agentwright.ai</a>
+      </div>
+      <p class="price-note"><strong>$1,500 one-time setup, $150/month to keep it running.</strong> AI software starts at about $30/month, billed separately. No long contract.</p>
+    </div>
+    <div class="board" aria-label="Example of an AI team's workflows">
+      <span class="board-note">Example</span>
+      <div class="board-head"><b>Your workflows this week</b><span class="live">Running in your accounts</span></div>
+      <div class="wf"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div><div><b>Quote requests</b><small>Intake → Researcher → Drafter</small><div class="chain"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div><span class="chip ready">Draft ready</span></div>
+      <div class="wf"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><b>Client onboarding</b><small>Tracker chasing documents</small><div class="chain"><i class="on"></i><i class="on"></i><i></i><i></i></div></div><span class="chip wait">Waiting on client</span></div>
+      <div class="wf"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><b>Invoice follow-ups</b><small>Reminders drafted</small><div class="chain"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div><span class="chip ready">To approve</span></div>
+      <div class="wf"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><div><b>Weekly owner report</b><small>Pulled from email, calendar and sheets</small><div class="chain"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div><span class="chip done">Ready Monday</span></div>
+      <div class="approve-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><b>Your team approves anything that goes out</b><small>Assistants prepare; a person reviews and sends.</small></div></div>
+    </div>
   </div>
-  <div class="hero-preview" aria-label="Illustrative quote follow-up tracker">
-    <div class="preview-bar"><span class="preview-logo">aw / QUOTE DESK</span><span class="tag plain">Illustrative example</span></div>
-    <div class="preview-heading"><div><p class="muted">A clear next step for every quote</p><h2>Today's follow-up</h2></div><span class="count-pill">03</span></div>
-    <div class="preview-row"><div><span class="row-id">Q-1042</span><strong>Stainless enclosures</strong><span class="muted">First follow-up ready</span></div><span class="status ready">Due today</span></div>
-    <div class="preview-row"><div><span class="row-id">Q-1043</span><strong>Equipment panels</strong><span class="muted">Buyer asked a question</span></div><span class="status paused">Reply received</span></div>
-    <div class="preview-row"><div><span class="row-id">Q-1044</span><strong>Bracket assemblies</strong><span class="muted">Next check-in scheduled</span></div><span class="status scheduled">In progress</span></div>
-    <div class="preview-bottom"><span class="check" aria-hidden="true">✓</span><p>Reminders pause when the buyer replies.<br><strong>Your team takes it from there.</strong></p></div>
+</section>
+
+<section class="across" aria-label="Where the assistants work">
+  <div class="wrap"><div class="across-box">Works inside your own Google Workspace or Microsoft 365 accounts, across
+    <span class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Email</span><span class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Calendar</span><span class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Documents</span><span class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>Spreadsheets</span></div></div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="roles-head">
+      <div><div class="eyebrow">What "an AI team" means</div><h2>Not one chatbot. A team, each with one job.</h2></div>
+      <p class="lede">Working together the way a good office does: one takes in new work, one keeps track, one looks things up, one drafts, one coordinates and one reports back. Each team is set up around your workflows.</p>
+    </div>
+    <div class="roles">
+      <div class="card role"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div><h3>Intake</h3><p>Picks up new requests wherever they arrive (email, forms, shared folders), sorts them and starts the right workflow.</p></div>
+      <div class="card role"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h3>Tracker</h3><p>Keeps deadlines, renewals and follow-ups on the calendar and in your tracking sheets, and tells you what's slipping.</p></div>
+      <div class="card role"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Researcher</h3><p>Gathers what each job needs: past documents, client history, public notices and the details already in your files.</p></div>
+      <div class="card role"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><h3>Drafter</h3><p>Writes first drafts of quotes, letters, replies, outlines and reminders from your own past work and templates.</p></div>
+      <div class="card role"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></div><h3>Coordinator</h3><p>Proposes meeting times, builds checklists and hands each step to the right assistant or person.</p></div>
+      <div class="card role"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h3>Reporter</h3><p>Gives the owner a short daily or weekly summary: what needs you, what's waiting on whom, what's overdue.</p></div>
+    </div>
+    <div class="callout"><p>Every team is different. We build yours around your work, not a template you have to fit into. We run our own business this way every day, and we'll show you a live example on the call.</p><a class="btn btn-ghost" href="https://cal.com/agentwright/30min">See a live example &rarr;</a></div>
   </div>
-</div></section>
-<section class="principles"><div class="wrap principle-grid"><p><span>01</span> Keep your quoting tools</p><p><span>02</span> Agree the timing and wording</p><p><span>03</span> Follow up with control</p></div></section>
-<section class="section" id="how"><div class="wrap">
-  <div class="section-heading"><p class="eyebrow">AFTER THE QUOTE GOES OUT</p><h2>Keep your open quotes<br>on track.</h2><p>Between production, customer calls and the next job, follow-up can slip. AgentWright gives each selected quote a clear next step.</p></div>
-  <div class="steps"><article><span class="step-number">01 / CONNECT</span><h3>Add the quotes you want followed up.</h3><p>Use your existing Gmail account and a shared quote tracker. Your team selects eligible quotes and confirms the details.</p></article><article><span class="step-number">02 / FOLLOW UP</span><h3>Choose when and how to follow up.</h3><p>We configure a limited reminder sequence around your sales cycle. Start with reviewed drafts before enabling agreed automatic messages.</p></article><article><span class="step-number">03 / HAND BACK</span><h3>Make room for the real conversation.</h3><p>A buyer reply pauses the sequence. Your team answers questions and updates quotes won, lost or closed by phone.</p></article></div>
-</div></section>
-<section class="section demo-section" id="demo"><div class="wrap demo-grid">
-  <div><p class="eyebrow">TRY THE WORKFLOW</p><h2>See what happens<br>when a buyer replies.</h2><p class="body-large">Choose an industry, then simulate a reply or pause the sample quote. See how the next step changes.</p><p class="demo-disclaimer">Interactive illustration only. All companies and quotes are fictional. No email is sent and no mailbox is connected.</p></div>
-  <div class="demo-panel">
-    <div class="segment" role="group" aria-label="Example industry"><button class="active" data-industry="metal" aria-pressed="true">Sheet metal</button><button data-industry="signs" aria-pressed="false">Signs &amp; graphics</button></div>
-    <div class="demo-title"><div><p id="demo-id" class="row-id">Q-1042</p><h3 id="demo-name">Stainless enclosures</h3><p id="demo-customer" class="muted">Example Industrial Co.</p></div><span id="demo-status" class="status ready">Follow-up due</span></div>
-    <div class="email-preview"><span class="email-label">APPROVED FOLLOW-UP EXAMPLE</span><p id="demo-message">Hi Alex, checking in on quote Q-1042 for the stainless enclosures. Is the project still moving ahead, or would a later check-in be more useful?</p></div>
-    <p id="demo-explanation" class="demo-explanation" aria-live="polite">The next agreed reminder is ready for review.</p>
-    <div class="demo-actions"><button id="reply-button" class="button">Simulate buyer reply</button><button id="pause-button" class="button secondary">Pause quote</button><button id="reset-button" class="reset">Reset</button></div>
+</section>
+
+<section class="wfsec" id="workflows">
+  <div class="glow g1"></div>
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Workflows</div><h2>Many workflows, one team.</h2>
+    <p class="lede">Every business runs on a handful of repeatable workflows. We set up the ones that eat your week, end to end. Pick one to see how the team passes the work along.</p></div>
+    <div class="tabs" role="tablist" id="tabs"><button class="tab on" data-w="0" role="tab" aria-selected="true">Quote request <small>Distributors &amp; trades</small><span class="prog"></span></button><button class="tab" data-w="1" role="tab" aria-selected="false">Client onboarding <small>Accounting</small><span class="prog"></span></button><button class="tab" data-w="2" role="tab" aria-selected="false">Invoice follow-up <small>Any business</small><span class="prog"></span></button><button class="tab" data-w="3" role="tab" aria-selected="false">Bid opportunity <small>Government contractors</small><span class="prog"></span></button><button class="tab" data-w="4" role="tab" aria-selected="false">Service request <small>Property management</small><span class="prog"></span></button><button class="tab" data-w="5" role="tab" aria-selected="false">Weekly owner report <small>Any business</small><span class="prog"></span></button></div>
+    <div class="card stage">
+      <div class="stage-top"><div><h3 id="wfTitle"></h3><p id="wfDesc"></p></div>
+        <div class="ctrl"><button type="button" id="prevBtn" aria-label="Previous workflow">&larr;</button><button type="button" id="playBtn">Pause</button><button type="button" id="nextBtn" aria-label="Next workflow">&rarr;</button></div></div>
+      <div class="track" id="track"></div>
+      <div class="stage-bottom">
+        <div class="caption" aria-live="polite">
+          <div><div class="stepno" id="capNo"></div><h4 id="capTitle"></h4><p id="capText"></p></div>
+          <div><div class="rule"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span><b>Assistants prepare; a person approves</b> anything that goes out.</span></div>
+          <div class="dots" id="dots"></div></div>
+        </div>
+        <div class="log"><div class="log-head"><span>Team hand-offs</span><span id="logTag">example</span></div><div id="logBody"></div></div>
+      </div>
+    </div>
+    <p class="wf-foot">These are examples, not results from past clients. Your workflows are set up on the planning call.</p>
   </div>
-</div></section>
-<section class="section" id="industries"><div class="wrap">
-  <div class="section-heading horizontal"><div><p class="eyebrow">TWO INDUSTRIES. ONE FOCUSED SYSTEM.</p><h2>Built around your<br>outstanding quotes.</h2></div><p>The first pilots are for independent US businesses that send quotes by email and still manage follow-up manually.</p></div>
-  <div class="industry-grid">
-    <article class="industry-card"><div class="industry-top"><span class="industry-index">01</span><span class="chip">FABRICATION</span></div><h3>Sheet-metal<br>fabricators</h3><p>For shops quoting custom parts, enclosures and assemblies, where the estimator also has plenty of other work to do.</p><ul><li>Keep your estimating and pricing process</li><li>Track selected quotes after they're sent</li><li>Give the team a clear follow-up queue</li></ul><a class="text-link" data-pilot="sheet-metal fabrication" href="mailto:hello@agentwright.ai?subject=Sheet-metal%20quote%20follow-up%20pilot">Discuss a fabrication pilot <span aria-hidden="true">↗</span></a></article>
-    <article class="industry-card"><div class="industry-top"><span class="industry-index">02</span><span class="chip">SIGNS &amp; GRAPHICS</span></div><h3>Commercial sign<br>&amp; graphics shops</h3><p>For independent shops quoting storefront signs, fleet graphics and custom commercial work, with follow-up spread across inboxes and memory.</p><ul><li>Keep your design and quoting tools</li><li>Agree a suitable check-in schedule</li><li>Pause reminders when the buyer responds</li></ul><a class="text-link" data-pilot="commercial signs and graphics" href="mailto:hello@agentwright.ai?subject=Sign-shop%20quote%20follow-up%20pilot">Discuss a sign-shop pilot <span aria-hidden="true">↗</span></a></article>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>From first call to a team that runs every day.</h2>
+    <div class="steps">
+      <div class="card step"><div class="num">01</div><h3>30-minute intro call</h3><p>A quick conversation about your tools and where the hours go. If an AI team clearly won't help, we'll say so and save you the time.</p></div>
+      <div class="card step"><div class="num">02</div><h3>Questionnaire and 1&#8209;hour planning call</h3><p>A short questionnaire (five questions, no passwords), then a 1-hour call where we walk through your week step by step and agree the first one to three jobs for your team.</p></div>
+      <div class="card step"><div class="num">03</div><h3>Live setup in your accounts</h3><p>About 5 hours over two or three screen-share sessions. You stay signed in to your own accounts; we build the assistants, connect your email, calendar and files, and set the daily routines.</p><span class="tag">Done in about a week, then two weeks of tuning</span></div>
+      <div class="card step"><div class="num">04</div><h3>Monthly check-in</h3><p>Once a month we check that every routine ran, fix anything that broke, reconnect expired sign-ins and add one improvement.</p></div>
+    </div>
   </div>
-  <div class="fit-note"><strong>A useful starting point:</strong> You send quotes regularly, follow-up takes time or gets missed, and one person can own the tracker.</div>
-</div></section>
-<section class="section pilot-section" id="pilot"><div class="wrap pilot-grid">
-  <div><p class="eyebrow">START SMALL. MEASURE THE DIFFERENCE.</p><h2>One inbox.<br>Twenty quotes.<br>Thirty days.</h2><p class="body-large">We check the fit, agree a fixed scope and test the process on a manageable set of your quotes.</p><p>At the end, review the time spent, useful buyer responses, and the effort needed to keep it running. Then decide whether to continue.</p></div>
-  <div class="pricing"><div class="pricing-label">30-DAY PILOT</div><div class="price">$500<span>one-time pilot fee</span></div><p class="pricing-sub">30 days, up to 20 eligible quotes.</p><ul class="included"><li>One Google Workspace Gmail mailbox</li><li>One shared quote tracker</li><li>Up to three approved follow-up messages per quote</li><li>Reply pauses and manual stop controls</li><li>Setup, one training session and an end-of-pilot review</li></ul><a class="button lime full" href="mailto:hello@agentwright.ai?subject=AgentWright%2030-day%20pilot&body=Hi%20AgentWright%20team%2C%0A%0AI%27d%20like%20to%20discuss%20the%20quote-follow-up%20pilot.%0A%0ACompany%3A%0AIndustry%3A%0AApproximate%20quotes%20sent%20per%20month%3A%0ACurrent%20email%20and%20quoting%20tools%3A%0AHow%20we%20follow%20up%20today%3A%0A%0AThanks">Ask about the pilot <span aria-hidden="true">↗</span></a><p class="pricing-note">Email hello@agentwright.ai. We'll confirm fit and scope before payment.</p><div class="next-price"><strong>If you choose to continue</strong><p>The $500 pilot counts toward $1,500 total setup, leaving $1,000. Ongoing monitoring and maintenance is $250/month for up to 100 new eligible quotes per month. Required software is billed separately. Continued service requires a separate agreement.</p></div></div>
-</div></section>
-<section class="section faq-section"><div class="wrap faq-grid"><div><p class="eyebrow">A FEW PRACTICAL QUESTIONS</p><h2>Know what<br>you're getting.</h2></div><div class="faq">
-  <details><summary>Does this replace our quoting software?</summary><p>Your team keeps preparing and pricing quotes in its existing tools. AgentWright handles the agreed follow-up process after selected quotes are sent. The initial scope does not include ERP integration, CAD analysis or automated pricing.</p></details>
-  <details><summary>Will it send messages without our control?</summary><p>You approve the wording, timing and eligible quotes. We begin with reviewed drafts. Automatic sending is enabled only after the workflow has been tested in your account and you authorize it. Detected replies to tracked conversations pause reminders. Your team reviews ambiguous or separate-thread responses and records phone orders and other offline decisions in the tracker.</p></details>
-  <details><summary>What software do we need?</summary><p>The first version uses one Google Workspace Gmail account, Google Sheets and Make. These accounts belong to you. Any required software subscriptions are separate from AgentWright's fee. Outlook and custom integrations are outside the initial pilot.</p></details>
-  <details><summary>What if we already have follow-up automation?</summary><p>If it works well, you may not need this service. The pilot is for businesses with a specific gap in their current process. We will check that before agreeing to start.</p></details>
-  <details><summary>Do you guarantee more sales?</summary><p>No. Follow-up can help organize opportunities and obtain responses, but price, timing, fit and buying decisions are outside this system's control. The pilot measures what changes in your actual process.</p></details>
-  <details><summary>How much can we customize?</summary><p>We configure your signature, timing, approved messages and tracker owner. The workflow and supported tools remain consistent. New integrations and custom features are outside this offer. Monitoring and maintenance cover the agreed workflow; the service agreement sets support hours and response expectations.</p></details>
-</div></div></section>
-<section class="contact-section"><div class="wrap contact-grid"><div><p class="eyebrow">LET'S LOOK AT YOUR FOLLOW-UP</p><h2>Is there a gap between<br>quote sent and next step?</h2><p>Tell us how your team follows up today. We'll help you work out whether the pilot fits.</p></div><a class="button lime" href="mailto:hello@agentwright.ai?subject=Our%20quote%20follow-up%20process">Contact AgentWright <span aria-hidden="true">↗</span></a></div></section>
-</main>
-<footer><div class="wrap footer-grid"><a class="brand" href="#"><span class="mark" aria-hidden="true">aw</span>agentwright<span class="brand-dot">.</span></a><span>© 2026 AgentWright</span><div><a href="mailto:hello@agentwright.ai">hello@agentwright.ai</a><a href="#privacy">Privacy</a></div></div><div class="wrap"><details id="privacy" class="privacy-disclosure"><summary>Website privacy</summary><div class="privacy-content"><p>Last updated: September 6, 2026.</p><h3>This website</h3><p>This website contains an interactive illustration using fictional quotes. The illustration runs in your browser and does not connect to your mailbox or send emails. This version has no analytics scripts, advertising trackers, embedded booking tools or contact form. Fonts are loaded from Google Fonts, which receives the request needed to deliver them. The hosting provider may process technical connection and security information.</p><h3>When you contact us</h3><p>Email links open your email application. The information you choose to send, including your contact details and questions, is used to respond and discuss the service. Please do not send customer quote files, drawings or other sensitive business information in an initial inquiry.</p><h3>Client workflows</h3><p>A pilot's access permissions, software providers, data handling, retention and service terms are agreed before connecting client accounts. This website does not itself run a client quote-follow-up workflow.</p><h3>Questions and requests</h3><p>Contact <a href="mailto:hello@agentwright.ai">hello@agentwright.ai</a> with questions about your information, to request correction or deletion, or to ask us to stop contacting you.</p></div></details></div></footer>
+</section>
+
+<section class="soft" id="examples">
+  <div class="wrap">
+    <div class="eyebrow">Example teams</div>
+    <h2>What an AI team can take off your plate.</h2>
+    <p class="note">These are examples of the work we set up, not results from past clients. On the planning call we pick the jobs that matter most to you.</p>
+    <div class="ex-grid">
+      <div class="card ex"><div class="head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></div><h3>Government service contractors</h3></div><ul>
+        <li>Morning digest of new public notices (for example from SAM.gov) in your codes and set-asides.</li>
+        <li>Response deadlines on your calendar, with reminders.</li>
+        <li>First drafts of capability statements and past-performance write-ups from your own documents.</li>
+        <li class="limit">Never logs in to government portals or submits anything. You review and submit.</li></ul></div>
+      <div class="card ex"><div class="head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div><h3>Food &amp; beverage distributors</h3></div><ul>
+        <li>Order inbox sorted every morning: new orders, changes, price and availability questions, delivery questions, with drafted replies.</li>
+        <li>Unanswered quotes and past-due invoices tracked, with polite reminders drafted.</li>
+        <li class="limit">Doesn't enter orders, change prices or promise delivery dates. Your team does.</li></ul></div>
+      <div class="card ex"><div class="head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg></div><h3>Property management companies</h3></div><ul>
+        <li>Tenant and owner emails sorted, with urgent maintenance requests flagged first.</li>
+        <li>Lease renewals, move-outs and inspections on the calendar, with reminders.</li>
+        <li>Drafted rent reminders, vendor scheduling emails and owner updates for your team to send.</li>
+        <li class="limit">Never screens applicants or makes leasing decisions.</li></ul></div>
+      <div class="card ex"><div class="head"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></div><h3>Accounting, bookkeeping and tax firms</h3></div><ul>
+        <li>A running list of which clients still owe which documents, with reminders drafted for your team to send.</li>
+        <li>Engagement letters, booking and filing deadlines tracked.</li>
+        <li>A morning summary for the partners.</li>
+        <li class="limit">Admin work only: tax returns and ID numbers stay out of the assistants.</li></ul></div>
+      <div class="card ex any"><div><h3>And anyone else</h3><p>Construction and trade firms, agencies, nonprofits, school admin offices, consultants. If your week is mostly email, calendar and documents, book a call and we'll tell you whether an AI team fits.</p></div><a class="btn" href="https://cal.com/agentwright/30min">Book a 30-minute intro call &rarr;</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="wrap">
+    <div class="eyebrow">Where the hours go</div>
+    <h2>Most of the workday goes to work about work.</h2>
+    <p class="lede">Coordinating, chasing and updating, instead of the work people were hired for. Estimate what an AI team could hand back to yours.</p>
+    <div class="hours-grid">
+      <div class="stat">
+        <div>
+          <div class="big"><span class="count" data-to="58">58</span>%</div>
+          <p class="what">of knowledge workers' day goes to "work about work": time spent coordinating work rather than doing the skilled, strategic jobs they were hired for.</p>
+          <div class="weekbar" aria-hidden="true"><i id="weekFill"></i></div>
+          <div class="weeklbl"><span>Work about work</span><span>Skilled and strategic work</span></div>
+        </div>
+        <div class="src">Source: Asana, <a href="https://investors.asana.com/news-releases/news-release-details/asana-anatomy-work-global-index-2023-smart-collaboration-and">Anatomy of Work Global Index 2023</a> (published March 8, 2023). Survey of 9,615 knowledge workers in the US, UK, Australia, France, Germany and Japan, conducted by GWI in November 2022. Self-reported; not a result from our clients.</div>
+      </div>
+      <div class="card calc" id="calc">
+        <h3>Estimate your hours back</h3>
+        <p class="hint">Move the sliders to match your team.</p>
+        <div class="slider"><label for="sTeam"><span>People on your team</span><output id="oTeam">4</output></label><input type="range" id="sTeam" min="1" max="25" value="4"></div>
+        <div class="slider"><label for="sHrs"><span>Hours per person each week on repetitive admin and coordination<small>Follow-ups, scheduling, chasing documents, status updates, reports</small></span><output id="oHrs">8 hrs</output></label><input type="range" id="sHrs" min="1" max="25" value="8"></div>
+        <div class="slider"><label for="sPct"><span>Share an AI team could take on</span><output id="oPct">30%</output></label><input type="range" id="sPct" min="10" max="60" step="5" value="30"></div>
+        <div class="result"><div><b class="grad-text" id="rWeek">9.6</b><small>hours back per week</small></div><div><b class="grad-text" id="rYear">461</b><small>hours back per year (48 working weeks)</small></div></div>
+        <p class="fine">An estimate from your inputs, not a guarantee. We start at a modest 30%; on the planning call we look at your actual week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="safety">
+  <div class="wrap">
+    <div class="eyebrow">Safety</div>
+    <h2>You stay in control.</h2>
+    <div class="safe-grid">
+      <div class="card safe"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg></div><h3>You own the accounts and the logins.</h3><p>The AI subscription is in your name and paid by you. We never hold your passwords; we work only in sessions you open.</p></div>
+      <div class="card safe"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Nothing goes out without your approval.</h3><p>Assistants draft; a person on your team reviews and sends.</p></div>
+      <div class="card safe"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg></div><h3>Your data stays in your accounts.</h3><p>Your email, calendar and files stay where they are. We don't copy them to our systems.</p></div>
+      <div class="card safe"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg></div><h3>Some data stays out.</h3><p>No health information, no tax returns or ID numbers, no Controlled Unclassified Information (CUI), no classified or export-controlled material.</p></div>
+      <div class="card safe"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0M12 2v10"/></svg></div><h3>Easy to stop.</h3><p>Disconnect any app or cancel the subscription at any time, and the assistants stop.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Pricing</div><h2>Simple, and month to month.</h2></div>
+    <div class="pricing">
+      <div class="card plan main"><div class="label">Setup</div><div class="amt">$1,500<small>one-time</small></div><div class="sub">Built in about a week</div><p class="desc">Questionnaire and planning call, about 5 hours of live setup in your accounts, two weeks of tuning, written instructions and a short handover for your team.</p></div>
+      <div class="card plan"><div class="label">Keep it running</div><div class="amt">$150<small>/month</small></div><div class="sub">Cancel any month</div><p class="desc">Monthly check-in, fixes when something breaks, reconnecting expired sign-ins and one new routine or improvement a month.</p></div>
+      <div class="card plan third"><div class="label">AI software</div><div class="amt"><span class="from">Starting at about</span>$30<small>/month</small></div><div class="sub">Billed separately by the provider</div><p class="desc">You subscribe directly in your own name. It can go up depending on usage and the plan you end up needing. It isn't part of our fee.</p></div>
+    </div>
+    <div class="card pricing-foot"><p>There's no money-back guarantee. That's why we start with a 30-minute intro call and a 1-hour planning call, and say so if it isn't a fit.</p><a class="btn btn-primary" href="https://cal.com/agentwright/30min">Book a 30-minute intro call &rarr;</a></div>
+  </div>
+</section>
+
+<section class="soft" id="faq">
+  <div class="wrap faq-grid">
+    <div><div class="eyebrow">FAQ</div><h2>Straight answers.</h2><p class="lede" style="font-size:17px">Anything else? Email <a href="mailto:hello@agentwright.ai">hello@agentwright.ai</a> or ask on the intro call.</p></div>
+    <div class="card faq-list">
+      <details open><summary>Do you only work with certain industries?</summary><p>No. We build around your workflow, whatever the field. The examples above are just the jobs we see most.</p></details>
+      <details open><summary>Do you guarantee we'll save time or win more business?</summary><p>No. An AI team can take a lot of routine sorting and drafting off your people, but how much depends on your work and how you use it. We agree the jobs up front and review what's working at each monthly check-in.</p></details>
+      <details><summary>Which AI software do you use?</summary><p>A leading AI assistant platform that you subscribe to in your own name, starting at about $30/month. It can go up depending on usage and the plan you end up needing. We'll go through it on the intro call, including what it costs and what it can and can't connect to.</p></details>
+      <details><summary>Do you need our passwords?</summary><p>No. You sign in to your own accounts during the setup sessions. We never store your logins.</p></details>
+      <details><summary>Will it send emails on its own?</summary><p>No. Assistants prepare drafts and summaries. Someone on your team approves and sends.</p></details>
+      <details><summary>What do we need already?</summary><p>Google Workspace or Microsoft 365 email and calendar. Shared files help. No new software beyond the AI subscription.</p></details>
+      <details><summary>Can it log in to our other systems, submit things or move money?</summary><p>No. It drafts, tracks and reminds. Submissions, orders, payments and decisions stay with your team.</p></details>
+      <details><summary>What if the AI software changes?</summary><p>It can. Keeping up with those changes is part of the monthly check-in. If it stops being useful, cancel any month.</p></details>
+      <details><summary>Can we use it for health data, tax returns or CUI?</summary><p>No. Those stay out of the assistants.</p></details>
+      <details><summary>Do you work outside the US?</summary><p>Not at the moment. We work with small US businesses and organizations.</p></details>
+      <details><summary>Can we cancel?</summary><p>Yes. The $150/month is month to month, and the AI subscription is yours to keep or cancel.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap"><div class="closing-box">
+    <h2>What would your week look like with an AI team doing the busywork?</h2>
+    <p>Book a 30-minute intro call and we'll tell you honestly whether it would help.</p>
+    <div class="cta-row"><a class="btn btn-primary" href="https://cal.com/agentwright/30min">Book a 30-minute intro call &rarr;</a><a class="btn btn-ghost" href="mailto:hello@agentwright.ai">or email hello@agentwright.ai</a></div>
+  </div></div>
+</section>
+
+<footer><div class="wrap">
+  <a class="wordmark" href="#"><i></i>AgentWright</a>
+  <span><a href="mailto:hello@agentwright.ai">hello@agentwright.ai</a></span>
+</div></footer>
 <script>
-'use strict';
-const examples={metal:{id:'Q-1042',name:'Stainless enclosures',company:'Example Industrial Co.',message:'Hi Alex, checking in on quote Q-1042 for the stainless enclosures. Is the project still moving ahead, or would a later check-in be more useful?'},signs:{id:'Q-2086',name:'Storefront signage',company:'Example Retail Co.',message:'Hi Alex, checking in on quote Q-2086 for the storefront signage. Is the project still moving ahead, or would a later check-in be more useful?'}};
-let selected='metal';
-const byId=id=>document.getElementById(id);
-function resetDemo(){const e=examples[selected];byId('demo-id').textContent=e.id;byId('demo-name').textContent=e.name;byId('demo-customer').textContent=e.company;byId('demo-message').textContent=e.message;byId('demo-status').textContent='Follow-up due';byId('demo-status').className='status ready';byId('demo-explanation').textContent='The next agreed reminder is ready for review.';byId('reply-button').disabled=false;byId('pause-button').disabled=false;}
-document.querySelectorAll('[data-industry]').forEach(button=>button.addEventListener('click',()=>{selected=button.dataset.industry;document.querySelectorAll('[data-industry]').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});resetDemo();}));
-byId('reply-button').addEventListener('click',()=>{byId('demo-status').textContent='Reply received';byId('demo-status').className='status paused';byId('demo-explanation').textContent='Example reply: “Can you confirm the lead time?” Reminders are paused. Your team handles the question.';byId('reply-button').disabled=true;byId('pause-button').disabled=true;});
-byId('pause-button').addEventListener('click',()=>{byId('demo-status').textContent='Manually paused';byId('demo-status').className='status scheduled';byId('demo-explanation').textContent='The quote is paused. No further reminder is due until your team reviews and resumes it.';byId('reply-button').disabled=true;byId('pause-button').disabled=true;});
-byId('reset-button').addEventListener('click',resetDemo);
-const requestedIndustry=new URLSearchParams(window.location.search).get('industry');
-if(requestedIndustry==='signs'){document.querySelector('[data-industry="signs"]').click();}
-
-function revealPrivacy(){if(window.location.hash==="#privacy"){const privacy=document.getElementById("privacy");if(privacy)privacy.open=true;}}
-window.addEventListener("hashchange",revealPrivacy);revealPrivacy();
-
+var WF=[{"id": "quote", "title": "Quote request \u2192 drafted quote", "tag": "Distributors & trades", "desc": "A customer asks for pricing. The team gathers what it needs and has a quote ready for you to check.", "nodes": ["<div class=\"node trigger\" data-i=\"0\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-10 6L2 7\"/></svg></div><b>Request</b><small>arrives by email</small></div>", "<div class=\"node\" data-i=\"1\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 12h-6l-2 3h-4l-2-3H2\"/><path d=\"M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/></svg></div><b>Intake</b><small>sorts and logs</small></div>", "<div class=\"node\" data-i=\"2\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m21 21-4.3-4.3\"/></svg></div><b>Researcher</b><small>pulls the history</small></div>", "<div class=\"node\" data-i=\"3\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z\"/></svg></div><b>Drafter</b><small>drafts the quote</small></div>", "<div class=\"node\" data-i=\"4\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg></div><b>Tracker</b><small>sets the follow-up</small></div>", "<div class=\"node person\" data-i=\"5\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg></div><b>You</b><small>review and send</small></div>"], "steps": [{"t": "A quote request comes in", "c": "A customer asks for pricing on a repeat order by Friday.", "k": "Quote request", "who": "Request", "m": "\"Can you quote our usual order, delivered by Friday?\"", "kind": "t"}, {"t": "Intake picks it up", "c": "It recognizes a quote request, logs it in your tracking sheet and passes it on.", "k": "Logged", "who": "Intake", "m": "New quote request, logged. Researcher, can you pull their history?", "kind": "a"}, {"t": "Researcher gathers the details", "c": "It pulls the customer's last orders and your current price list from your files.", "k": "Past orders", "who": "Researcher", "m": "Last 3 orders and current price list attached.", "kind": "a"}, {"t": "Drafter writes the quote", "c": "A first draft in your quote template, plus a short cover note.", "k": "Draft quote", "who": "Drafter", "m": "Quote drafted in your template. Ready for review.", "kind": "a"}, {"t": "Tracker sets the follow-up", "c": "Friday's deadline and a follow-up reminder go on the calendar.", "k": "Due Friday", "who": "Tracker", "m": "Deadline Friday; follow-up reminder set for next Tuesday.", "kind": "a"}, {"t": "You review and send", "c": "You adjust anything you want and send it yourself.", "k": "Ready for you", "who": "You", "m": "Checked the pricing, sent. \u2713", "kind": "p"}]}, {"id": "onboard", "title": "New client onboarding", "tag": "Accounting & professional services", "desc": "A new client signs up. The team sets up the paperwork, chases what's missing and gets the kickoff on the calendar.", "nodes": ["<div class=\"node trigger\" data-i=\"0\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"2\"/><path d=\"M8 8h8M8 12h8M8 16h5\"/></svg></div><b>Intake form</b><small>submitted</small></div>", "<div class=\"node\" data-i=\"1\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 12h-6l-2 3h-4l-2-3H2\"/><path d=\"M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/></svg></div><b>Intake</b><small>sets up the file</small></div>", "<div class=\"node\" data-i=\"2\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 9h18M3 15h18M9 3v18\"/></svg></div><b>Tracker</b><small>chases documents</small></div>", "<div class=\"node\" data-i=\"3\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"6\" cy=\"19\" r=\"3\"/><path d=\"M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15\"/><circle cx=\"18\" cy=\"5\" r=\"3\"/></svg></div><b>Coordinator</b><small>books the kickoff</small></div>", "<div class=\"node\" data-i=\"4\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z\"/></svg></div><b>Drafter</b><small>welcome pack</small></div>", "<div class=\"node person\" data-i=\"5\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg></div><b>You</b><small>approve and send</small></div>"], "steps": [{"t": "A new client fills in your intake form", "c": "Their details and answers land in your shared files.", "k": "New client", "who": "Form", "m": "New client intake form submitted.", "kind": "t"}, {"t": "Intake sets up the client file", "c": "It creates the client folder and a checklist of what you need from them.", "k": "Checklist", "who": "Intake", "m": "Client folder and document checklist created.", "kind": "a"}, {"t": "Tracker chases what's missing", "c": "It compares the checklist to what's arrived and drafts a reminder for the rest.", "k": "2 docs missing", "who": "Tracker", "m": "2 of 6 documents still missing. Reminder drafted.", "kind": "a"}, {"t": "Coordinator proposes a kickoff", "c": "It finds open times on your calendar and drafts an invite.", "k": "3 time options", "who": "Coordinator", "m": "Kickoff options: Tue 10:00, Wed 2:00, Thu 9:30.", "kind": "a"}, {"t": "Drafter prepares the welcome", "c": "A welcome email and an engagement letter from your own templates.", "k": "Welcome draft", "who": "Drafter", "m": "Welcome email and engagement letter drafted.", "kind": "a"}, {"t": "You approve and send", "c": "You check the letter, pick the time and send. Nothing goes out without you.", "k": "Ready for you", "who": "You", "m": "Approved. Sent the welcome and the invite. \u2713", "kind": "p"}]}, {"id": "invoice", "title": "Invoice follow-up", "tag": "Any business", "desc": "Payments slip. The team notices, checks the history and prepares the right reminder, so nobody has to remember.", "nodes": ["<div class=\"node trigger\" data-i=\"0\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"/></svg></div><b>Due date</b><small>passes</small></div>", "<div class=\"node\" data-i=\"1\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg></div><b>Tracker</b><small>spots it</small></div>", "<div class=\"node\" data-i=\"2\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m21 21-4.3-4.3\"/></svg></div><b>Researcher</b><small>checks the thread</small></div>", "<div class=\"node\" data-i=\"3\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z\"/></svg></div><b>Drafter</b><small>writes the reminder</small></div>", "<div class=\"node\" data-i=\"4\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3v18h18\"/><path d=\"M7 15l4-4 3 3 5-6\"/></svg></div><b>Reporter</b><small>adds to the report</small></div>", "<div class=\"node person\" data-i=\"5\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg></div><b>You</b><small>approve and send</small></div>"], "steps": [{"t": "An invoice passes its due date", "c": "Your invoice spreadsheet shows one unpaid past its terms.", "k": "7 days late", "who": "Sheet", "m": "Invoice #1042 is 7 days past due.", "kind": "t"}, {"t": "Tracker spots it", "c": "It flags the invoice and checks whether a reminder already went out.", "k": "Overdue", "who": "Tracker", "m": "Overdue, no reminder sent yet. Researcher, any notes?", "kind": "a"}, {"t": "Researcher checks the history", "c": "It reads recent emails with the customer for any payment promise or dispute.", "k": "No dispute", "who": "Researcher", "m": "No dispute found. They paid late once before, within 2 weeks.", "kind": "a"}, {"t": "Drafter writes the reminder", "c": "A polite reminder, firmer only if it's long overdue, with the invoice attached.", "k": "Reminder draft", "who": "Drafter", "m": "Friendly first reminder drafted, invoice attached.", "kind": "a"}, {"t": "Reporter adds it to your summary", "c": "It shows up in the morning summary with everything else that's overdue.", "k": "In your summary", "who": "Reporter", "m": "Added to tomorrow's summary: 1 reminder to approve.", "kind": "a"}, {"t": "You approve and send", "c": "One click to check and send. The assistants never move money.", "k": "Ready for you", "who": "You", "m": "Looks right. Sent. \u2713", "kind": "p"}]}, {"id": "bid", "title": "Bid found \u2192 response outline", "tag": "Government contractors", "desc": "A new public notice matches your codes. The team summarizes it, tracks the dates and outlines a response.", "nodes": ["<div class=\"node trigger\" data-i=\"0\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z\"/><path d=\"M4 22v-7\"/></svg></div><b>Notice</b><small>posted</small></div>", "<div class=\"node\" data-i=\"1\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m21 21-4.3-4.3\"/></svg></div><b>Researcher</b><small>summarizes it</small></div>", "<div class=\"node\" data-i=\"2\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg></div><b>Tracker</b><small>tracks the dates</small></div>", "<div class=\"node\" data-i=\"3\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z\"/></svg></div><b>Drafter</b><small>outlines a response</small></div>", "<div class=\"node\" data-i=\"4\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"6\" cy=\"19\" r=\"3\"/><path d=\"M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15\"/><circle cx=\"18\" cy=\"5\" r=\"3\"/></svg></div><b>Coordinator</b><small>plans the work</small></div>", "<div class=\"node person\" data-i=\"5\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg></div><b>You</b><small>decide and submit</small></div>"], "steps": [{"t": "A new notice matches your codes", "c": "The morning check finds a new public notice in your codes and set-asides.", "k": "New notice", "who": "Notice", "m": "New notice in your codes this morning.", "kind": "t"}, {"t": "Researcher summarizes it", "c": "Scope, requirements, evaluation criteria and key dates on one page.", "k": "1-page summary", "who": "Researcher", "m": "Summary ready: scope, requirements, key dates.", "kind": "a"}, {"t": "Tracker tracks the dates", "c": "Questions deadline and response deadline go on the calendar, with reminders.", "k": "Due in 21 days", "who": "Tracker", "m": "Questions due in 9 days, response due in 21.", "kind": "a"}, {"t": "Drafter outlines a response", "c": "An outline with past-performance write-ups pulled from your own documents.", "k": "Outline", "who": "Drafter", "m": "Response outline drafted with 2 past-performance write-ups.", "kind": "a"}, {"t": "Coordinator plans the work", "c": "A checklist of sections, who owns each, and a check-in on the calendar.", "k": "Checklist", "who": "Coordinator", "m": "Section checklist ready; check-in proposed for Thursday.", "kind": "a"}, {"t": "You decide and submit", "c": "Bid or no bid is your call. You review and submit; it never logs in to government portals.", "k": "Your decision", "who": "You", "m": "Going for it. I'll finish and submit. \u2713", "kind": "p"}]}, {"id": "maint", "title": "Service request \u2192 scheduled \u2192 customer updated", "tag": "Property management & field service", "desc": "Something breaks. The team flags what's urgent, lines up a visit and keeps everyone updated, all for your approval.", "nodes": ["<div class=\"node trigger\" data-i=\"0\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\"/></svg></div><b>Request</b><small>comes in</small></div>", "<div class=\"node\" data-i=\"1\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 12h-6l-2 3h-4l-2-3H2\"/><path d=\"M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/></svg></div><b>Intake</b><small>flags urgency</small></div>", "<div class=\"node\" data-i=\"2\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"6\" cy=\"19\" r=\"3\"/><path d=\"M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15\"/><circle cx=\"18\" cy=\"5\" r=\"3\"/></svg></div><b>Coordinator</b><small>lines up a visit</small></div>", "<div class=\"node\" data-i=\"3\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg></div><b>Tracker</b><small>logs and follows up</small></div>", "<div class=\"node\" data-i=\"4\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z\"/></svg></div><b>Drafter</b><small>updates everyone</small></div>", "<div class=\"node person\" data-i=\"5\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg></div><b>You</b><small>approve and send</small></div>"], "steps": [{"t": "A tenant reports a leak", "c": "The request arrives by email or your maintenance form.", "k": "Leak reported", "who": "Request", "m": "\"Water leaking under the kitchen sink in unit 4B.\"", "kind": "t"}, {"t": "Intake flags it as urgent", "c": "Water and safety issues go to the top of the list.", "k": "Urgent", "who": "Intake", "m": "Urgent: water leak, unit 4B. Coordinator, please schedule.", "kind": "a"}, {"t": "Coordinator lines up a visit", "c": "It suggests times and drafts a request to your usual plumber.", "k": "Vendor request", "who": "Coordinator", "m": "Drafted request to your usual plumber for tomorrow morning.", "kind": "a"}, {"t": "Tracker logs it", "c": "The visit and a follow-up check go on the calendar.", "k": "Visit tomorrow", "who": "Tracker", "m": "Visit held for tomorrow 9:00; follow-up the day after.", "kind": "a"}, {"t": "Drafter writes the updates", "c": "A short update for the tenant and a note for the owner.", "k": "Updates", "who": "Drafter", "m": "Tenant update and owner note drafted.", "kind": "a"}, {"t": "You approve and send", "c": "You confirm the vendor and send the updates.", "k": "Ready for you", "who": "You", "m": "Confirmed the plumber, updates sent. \u2713", "kind": "p"}]}, {"id": "report", "title": "Weekly owner report", "tag": "Any business", "desc": "Every Friday the team pulls the week together from your email, calendar, documents and spreadsheets into one page.", "nodes": ["<div class=\"node trigger\" data-i=\"0\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/></svg></div><b>Friday</b><small>3:00 PM</small></div>", "<div class=\"node\" data-i=\"1\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m21 21-4.3-4.3\"/></svg></div><b>Researcher</b><small>gathers the week</small></div>", "<div class=\"node\" data-i=\"2\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 9h18M3 15h18M9 3v18\"/></svg></div><b>Tracker</b><small>checks what&#x27;s due</small></div>", "<div class=\"node\" data-i=\"3\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3v18h18\"/><path d=\"M7 15l4-4 3 3 5-6\"/></svg></div><b>Reporter</b><small>writes the page</small></div>", "<div class=\"node person\" data-i=\"4\"><div class=\"disc\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg></div><b>You</b><small>read and decide</small></div>"], "steps": [{"t": "It's Friday afternoon", "c": "A scheduled routine kicks off the weekly report.", "k": "Weekly run", "who": "Schedule", "m": "Friday 3:00 PM: weekly report started.", "kind": "t"}, {"t": "Researcher gathers the week", "c": "It reads this week's calendar, key email threads and your tracking sheets.", "k": "This week", "who": "Researcher", "m": "Pulled calendar, open threads and the tracking sheet.", "kind": "a"}, {"t": "Tracker checks what's due", "c": "Overdue items and next week's deadlines, with who each is waiting on.", "k": "4 items", "who": "Tracker", "m": "2 overdue, 2 due next week. Waiting on 1 client.", "kind": "a"}, {"t": "Reporter writes one page", "c": "What got done, what's stuck, what needs you, in plain language.", "k": "1-page report", "who": "Reporter", "m": "One-page report ready for the owner.", "kind": "a"}, {"t": "You read it and decide", "c": "Five minutes on Monday morning. The report goes to you only.", "k": "For you", "who": "You", "m": "Read it. Two follow-ups to handle today. \u2713", "kind": "p"}]}];
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(v,dec){return dec?v.toFixed(dec):Math.round(v).toLocaleString('en-US');}
+  function countUp(el,to,dec,dur){
+    if(reduce){el.textContent=fmt(to,dec);return;}
+    var t0=null;function f(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=fmt(to*e,dec);if(k<1)requestAnimationFrame(f);}
+    requestAnimationFrame(f);
+  }
+  // ticker + bar
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target;countUp(el,+el.dataset.to,0,1500);var wf=document.getElementById('weekFill');if(wf&&!reduce){wf.style.width='0';void wf.offsetWidth;wf.style.width='58%';}io.unobserve(el);}})},{threshold:.6});
+    document.querySelectorAll('.count').forEach(function(el){io.observe(el)});
+  }
+  // calculator
+  var sT=document.getElementById('sTeam'),sH=document.getElementById('sHrs'),sP=document.getElementById('sPct'),rW=document.getElementById('rWeek'),rY=document.getElementById('rYear'),tm;
+  function paint(r){r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%');}
+  function calc(anim){
+    [sT,sH,sP].forEach(paint);
+    document.getElementById('oTeam').textContent=sT.value;
+    document.getElementById('oHrs').textContent=sH.value+' hrs';
+    document.getElementById('oPct').textContent=sP.value+'%';
+    var w=sT.value*sH.value*sP.value/100;
+    if(anim){clearTimeout(tm);tm=setTimeout(function(){countUp(rW,w,1,600);countUp(rY,w*48,0,600);},60);}
+    else{rW.textContent=fmt(w,1);rY.textContent=fmt(w*48,0);}
+  }
+  [sT,sH,sP].forEach(function(r){r.addEventListener('input',function(){calc(true)})});
+  calc(false);
+  if('IntersectionObserver' in window){
+    var io2=new IntersectionObserver(function(es){if(es[0].isIntersecting){var w=sT.value*sH.value*sP.value/100;countUp(rW,w,1,1200);countUp(rY,w*48,0,1200);io2.disconnect();}},{threshold:.5});
+    io2.observe(document.getElementById('calc'));
+  }
+  // workflows
+  var tabs=[].slice.call(document.querySelectorAll('.tab')),track=document.getElementById('track'),logBody=document.getElementById('logBody'),dotsEl=document.getElementById('dots');
+  var playBtn=document.getElementById('playBtn');
+  var W=0,S=0,playing=!reduce,timer=null,STEP=1700,HOLD=2300;
+  var nodes=[],msgs=[],dots=[],packet,label,fill;
+  function center(n){return n.offsetLeft+n.offsetWidth/2;}
+  function build(w){
+    var wf=WF[w];
+    document.getElementById('wfTitle').textContent=wf.title;
+    document.getElementById('wfDesc').textContent=wf.desc;
+    document.getElementById('logTag').textContent='example · '+wf.tag;
+    track.style.gridTemplateColumns='repeat('+wf.nodes.length+',1fr)';
+    track.innerHTML='<div class="rail" id="rail"></div><div class="rail-fill" id="railFill"></div>'+wf.nodes.join('')+'<div class="packet" id="packet"><span id="packetLabel"></span></div>';
+    nodes=[].slice.call(track.querySelectorAll('.node'));
+    packet=document.getElementById('packet');label=document.getElementById('packetLabel');fill=document.getElementById('railFill');
+    var rail=document.getElementById('rail'),a=center(nodes[0]),b=center(nodes[nodes.length-1]);
+    rail.style.left=a+'px';rail.style.width=(b-a)+'px';fill.style.left=a+'px';
+    logBody.innerHTML=wf.steps.map(function(s){var c=s.kind==='t'?'who t':(s.kind==='p'?'who p':'who');return '<div class="msg"><span class="'+c+'">'+s.who+'</span><p>'+s.m+'</p></div>';}).join('');
+    msgs=[].slice.call(logBody.querySelectorAll('.msg'));
+    dotsEl.innerHTML=wf.steps.map(function(){return '<i></i>'}).join('');
+    dots=[].slice.call(dotsEl.querySelectorAll('i'));
+    tabs.forEach(function(t,k){t.classList.toggle('on',k===w);t.setAttribute('aria-selected',k===w?'true':'false');t.querySelector('.prog').style.width='0';});
+    // no transition on first placement
+    packet.style.transition='none';fill.style.transition='none';
+  }
+  function show(i){
+    var wf=WF[W],s=wf.steps[i];S=i;
+    nodes.forEach(function(n,k){n.classList.toggle('active',k===i);n.classList.toggle('done',k<i);});
+    msgs.forEach(function(m,k){m.classList.toggle('show',reduce||k<=i);});
+    dots.forEach(function(d,k){d.classList.toggle('on',k<=i);});
+    document.getElementById('capNo').textContent='Step '+(i+1)+' of '+wf.steps.length;
+    document.getElementById('capTitle').textContent=s.t;
+    document.getElementById('capText').textContent=s.c;
+    label.textContent=s.k;
+    packet.style.left=center(nodes[i])+'px';
+    fill.style.width=Math.max(0,center(nodes[i])-center(nodes[0]))+'px';
+    packet.classList.remove('go');void packet.offsetWidth;packet.classList.add('go');
+    var p=tabs[W].querySelector('.prog');p.style.transition='width .5s';p.style.width=((i+1)/wf.steps.length*100)+'%';
+    requestAnimationFrame(function(){packet.style.transition='';fill.style.transition='';});
+  }
+  function open(w,step){W=(w+WF.length)%WF.length;build(W);show(step==null?(reduce?WF[W].steps.length-1:0):step);schedule();}
+  function schedule(){
+    clearTimeout(timer);if(!playing)return;
+    var last=S>=WF[W].steps.length-1;
+    timer=setTimeout(function(){if(last)open(W+1);else{show(S+1);schedule();}},last?HOLD:STEP);
+  }
+  tabs.forEach(function(t,k){t.addEventListener('click',function(){open(k);});});
+  document.getElementById('prevBtn').addEventListener('click',function(){open(W-1);});
+  document.getElementById('nextBtn').addEventListener('click',function(){open(W+1);});
+  function setPlay(p){playing=p;playBtn.textContent=p?'Pause':'Play';if(p)schedule();else clearTimeout(timer);}
+  playBtn.addEventListener('click',function(){setPlay(!playing);});
+  if(reduce)playBtn.textContent='Play';
+  // pause auto-cycle while user hovers/focuses the stage
+  var stage=document.querySelector('.stage'),wasPlaying=false;
+  stage.addEventListener('mouseenter',function(){if(playing){wasPlaying=true;clearTimeout(timer);}});
+  stage.addEventListener('mouseleave',function(){if(wasPlaying&&playing){schedule();}wasPlaying=false;});
+  window.addEventListener('resize',function(){var s=S;build(W);show(s);});
+  open(0);
+  window.__wf={speed:function(a,b){STEP=a;HOLD=b;},open:open,show:function(i){clearTimeout(timer);show(i);},setPlay:setPlay};
+})();
 </script>
-</body></html>
+</body>
+</html>
