@@ -10,7 +10,7 @@
 <meta property="og:description" content="We set up a small team of AI assistants inside your own accounts to run your repeatable business workflows end to end. Your team approves anything that goes out. Then we keep it running.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://agentwright.ai/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230b202a%22%2F%3E%3Ctext%20x%3D%227%22%20y%3D%2242%22%20fill%3D%22%23d7f478%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2235%22%20font-weight%3D%22bold%22%20letter-spacing%3D%22-3%22%3Eaw%3C%2Ftext%3E%3C%2Fsvg%3E" type="image/svg+xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%2212%22%20y1%3D%2212%22%20x2%3D%2252%22%20y2%3D%2252%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232563eb%22%2F%3E%3Cstop%20offset%3D%220.6%22%20stop-color%3D%22%236d5dfc%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238b5cf6%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23f4f6ff%22%2F%3E%3Crect%20x%3D%2218%22%20y%3D%2218%22%20width%3D%2228%22%20height%3D%2228%22%20rx%3D%228%22%20transform%3D%22rotate%2845%2032%2032%29%22%20fill%3D%22url%28%23g%29%22%2F%3E%3C%2Fsvg%3E" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -344,7 +344,7 @@ footer a{text-decoration:none}
       <div class="pill"><b>AI teams</b> for small businesses and organizations</div>
       <h1>Your own AI team, built around <span class="grad-text">how you already work.</span></h1>
       <p class="lede">We learn how your business runs, then set up a small team of AI assistants inside your own accounts. They run your repeatable workflows end to end, passing work to each other across your email, calendar, documents and spreadsheets. Your team approves anything that goes out. Then we keep it running.</p>
-      <p class="hero-who">For small businesses and organizations in the US, in any field where the week disappears into follow-ups, deadlines and paperwork.</p>
+      <p class="hero-who">For small businesses and organizations anywhere, in any field where the week disappears into follow-ups, deadlines and paperwork.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://cal.com/agentwright/30min">Book a 30-minute intro call &rarr;</a>
         <a class="btn btn-ghost" href="mailto:hello@agentwright.ai">Email hello@agentwright.ai</a>
@@ -519,7 +519,7 @@ footer a{text-decoration:none}
       <details><summary>Can it log in to our other systems, submit things or move money?</summary><p>No. It drafts, tracks and reminds. Submissions, orders, payments and decisions stay with your team.</p></details>
       <details><summary>What if the AI software changes?</summary><p>It can. Keeping up with those changes is part of the monthly check-in. If it stops being useful, cancel any month.</p></details>
       <details><summary>Can we use it for health data, tax returns or CUI?</summary><p>No. Those stay out of the assistants.</p></details>
-      <details><summary>Do you work outside the US?</summary><p>Not at the moment. We work with small US businesses and organizations.</p></details>
+      <details><summary>Do you work outside the US?</summary><p>Yes. We work remotely with businesses and organizations anywhere.</p></details>
       <details><summary>Can we cancel?</summary><p>Yes. The $150/month is month to month, and the AI subscription is yours to keep or cancel.</p></details>
     </div>
   </div>
@@ -592,6 +592,7 @@ var WF=[{"id": "quote", "title": "Quote request \u2192 drafted quote", "tag": "D
     dotsEl.innerHTML=wf.steps.map(function(){return '<i></i>'}).join('');
     dots=[].slice.call(dotsEl.querySelectorAll('i'));
     tabs.forEach(function(t,k){t.classList.toggle('on',k===w);t.setAttribute('aria-selected',k===w?'true':'false');t.querySelector('.prog').style.width='0';});
+    revealTab(tabs[w]);
     // no transition on first placement
     packet.style.transition='none';fill.style.transition='none';
   }
@@ -611,10 +612,18 @@ var WF=[{"id": "quote", "title": "Quote request \u2192 drafted quote", "tag": "D
     requestAnimationFrame(function(){packet.style.transition='';fill.style.transition='';});
   }
   function open(w,step){W=(w+WF.length)%WF.length;build(W);show(step==null?(reduce?WF[W].steps.length-1:0):step);schedule();}
+  var pointerInside=false;
   function schedule(){
-    clearTimeout(timer);if(!playing)return;
+    clearTimeout(timer);if(!playing||pointerInside)return;
     var last=S>=WF[W].steps.length-1;
     timer=setTimeout(function(){if(last)open(W+1);else{show(S+1);schedule();}},last?HOLD:STEP);
+  }
+  function revealTab(tab){
+    var row=tab.parentElement;
+    if(row.scrollWidth<=row.clientWidth+1)return;
+    var rowRect=row.getBoundingClientRect(),tabRect=tab.getBoundingClientRect();
+    if(tabRect.left<rowRect.left+8)row.scrollBy({left:tabRect.left-rowRect.left-16,behavior:reduce?'auto':'smooth'});
+    else if(tabRect.right>rowRect.right-8)row.scrollBy({left:tabRect.right-rowRect.right+16,behavior:reduce?'auto':'smooth'});
   }
   tabs.forEach(function(t,k){t.addEventListener('click',function(){open(k);});});
   document.getElementById('prevBtn').addEventListener('click',function(){open(W-1);});
@@ -622,10 +631,11 @@ var WF=[{"id": "quote", "title": "Quote request \u2192 drafted quote", "tag": "D
   function setPlay(p){playing=p;playBtn.textContent=p?'Pause':'Play';if(p)schedule();else clearTimeout(timer);}
   playBtn.addEventListener('click',function(){setPlay(!playing);});
   if(reduce)playBtn.textContent='Play';
-  // pause auto-cycle while user hovers/focuses the stage
-  var stage=document.querySelector('.stage'),wasPlaying=false;
-  stage.addEventListener('mouseenter',function(){if(playing){wasPlaying=true;clearTimeout(timer);}});
-  stage.addEventListener('mouseleave',function(){if(wasPlaying&&playing){schedule();}wasPlaying=false;});
+  // Pause auto-play while the pointer is over this section. Clicks on tabs
+  // and the stage controls must not start the timer again until the pointer leaves.
+  var section=document.getElementById('workflows');
+  section.addEventListener('pointerenter',function(e){if(e.pointerType&&e.pointerType!=='mouse')return;pointerInside=true;clearTimeout(timer);});
+  section.addEventListener('pointerleave',function(e){if(e.pointerType&&e.pointerType!=='mouse')return;pointerInside=false;if(playing)schedule();});
   window.addEventListener('resize',function(){var s=S;build(W);show(s);});
   open(0);
   window.__wf={speed:function(a,b){STEP=a;HOLD=b;},open:open,show:function(i){clearTimeout(timer);show(i);},setPlay:setPlay};
